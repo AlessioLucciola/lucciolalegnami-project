@@ -1,20 +1,27 @@
 import React from 'react';
 
-import { Navbar, TopButton, ImageSlider } from './components';
-import { Footer } from './containers';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './pages/layout';
+import { Homepage, Products, NoPage } from './pages';
+
 import './dist/css/bootstrap.css';
 import './App.scss';
-
-
 
 const App = () => {
     return (
         <div className="app">
-            <Navbar />
-            <ImageSlider />
-            <TopButton />
-            <Footer />
+            <BrowserRouter forceRefresh={true}>
+                <Routes>
+                    <Route path='/' element={<Layout />}>
+                        <Route index element={<Homepage />} />
+                        <Route path='products' element={<Products />} />
+                        <Route path='*' element={<NoPage />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </div>
+
+        
     )
 }
 

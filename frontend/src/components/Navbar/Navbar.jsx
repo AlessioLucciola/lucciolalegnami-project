@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
@@ -25,14 +27,14 @@ function Navbar() {
   return (
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
-        <img src={images.logo} alt='logo'/>
+        <Link to='/'><img src={images.logo} alt='logo'/></Link>
       </div>
       <ul className='app__navbar-links'>
         <li className='app__flex p-text' key='l-Homepage'>
-          <a href=''>Homepage</a>
+          <Link to='/'>Homepage</Link>
         </li>
         <li className={`app__flex p-text ${dropbarMenu ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
-          <a href=''>Elenco Prodotti ▼</a>
+          <Link to='/products'>Elenco Prodotti ▼</Link>
         </li>
         <li className='app__flex p-text' key='l-LegnoUtilizzato'>
           <a href=''>Il Legno Utilizzato</a>
@@ -87,10 +89,10 @@ function Navbar() {
 
             <ul className='app__navbar-links'>
               <li className='app__flex p-text' key={'lm-Homepage'}>
-                <a href=''>Homepage</a>
+                <Link to='/'>Homepage</Link>
               </li>
               <li className='app__flex p-text' key='lm-ElencoProdotti'>
-                <a href=''>Elenco Prodotti</a>
+                <Link to='/products'>Elenco Prodotti ▼</Link>
               </li>
               <li className='app__flex p-text' key='lm-LegnoUtilizzato'>
                 <a href=''>Il Legno Utilizzato</a>
