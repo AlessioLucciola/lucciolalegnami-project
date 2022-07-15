@@ -1,6 +1,5 @@
 .app {
     background-color: var(--primary-color);
-    font-family: var(--font-base);
 }
   
 .app__whitebg {
@@ -14,8 +13,10 @@
 .app__container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 90%;
     margin: auto;
+    padding: 2rem 1rem;
     background-color: var(--white-color);
 }
 
