@@ -1,0 +1,31 @@
+.app__nopage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    text {
+        padding: 1rem;
+    }
+
+    button {
+        padding: 0.3rem 0.3rem;
+        border-radius: 20px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--white-color);
+
+        a {
+            color: var(--black-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}

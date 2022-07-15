@@ -34,7 +34,7 @@ function Navbar() {
           <Link to='/'>Homepage</Link>
         </li>
         <li className={`app__flex p-text ${dropbarMenu ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
-          <Link to='/products'>Elenco Prodotti ▼</Link>
+          <Link to='/prodotti'>Elenco Prodotti ▼</Link>
         </li>
         <li className='app__flex p-text' key='l-LegnoUtilizzato'>
           <a href=''>Il Legno Utilizzato</a>
@@ -49,7 +49,7 @@ function Navbar() {
 
       {dropbarMenu && (
         <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
-          <ul className='app__navbar-dropbar-menu-links'>
+          <ul className='app__navbar-dropbar-links'>
             <li className='app__flex p-text' key='Recinzioni'>
               <a href=''>Pali Per Recizioni</a>
             </li>
@@ -92,16 +92,16 @@ function Navbar() {
                 <Link to='/'>Homepage</Link>
               </li>
               <li className='app__flex p-text' key='lm-ElencoProdotti'>
-                <Link to='/products'>Elenco Prodotti ▼</Link>
+                <Link to='/prodotti'>Elenco Prodotti ▼</Link>
               </li>
               <li className='app__flex p-text' key='lm-LegnoUtilizzato'>
-                <a href=''>Il Legno Utilizzato</a>
+                <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
               </li>
               <li className='app__flex p-text' key='lm-Contatti'>
-                <a href=''>Contatti</a>
+                <Link to='/contatti'>Contatti</Link>
               </li>
               <li className='app__flex p-text' key='lm-Preventivo'>
-                <button href=''>Richiedi Un Preventivo</button>
+                <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
               </li>
             </ul>
           </motion.div>

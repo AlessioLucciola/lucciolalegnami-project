@@ -12,9 +12,9 @@ const App = () => {
         <div className="app">
             <BrowserRouter forceRefresh={true}>
                 <Routes>
-                    <Route path='/' element={<Layout />}>
+                    <Route path='/' element={<Layout />} >
                         <Route index element={<Homepage />} />
-                        <Route path='products' element={<Products />} />
+                        <Route path='prodotti' element={<Products />} />
                         <Route path='*' element={<NoPage />} />
                     </Route>
                 </Routes>
