@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
@@ -37,13 +37,13 @@ function Navbar() {
           <Link to='/prodotti'>Elenco Prodotti ▼</Link>
         </li>
         <li className='app__flex p-text' key='l-LegnoUtilizzato'>
-          <a href=''>Il Legno Utilizzato</a>
+          <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
         </li>
         <li className='app__flex p-text' key='l-Contatti'>
-          <a href=''>Contatti</a>
+          <Link to='/contatti'>Contatti</Link>
         </li>
         <li className='app__flex p-text' key='l-Preventivo'>
-          <button href=''>Richiedi Un Preventivo</button>
+          <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
         </li>
       </ul>
 
@@ -51,28 +51,28 @@ function Navbar() {
         <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
           <ul className='app__navbar-dropbar-links'>
             <li className='app__flex p-text' key='Recinzioni'>
-              <a href=''>Pali Per Recizioni</a>
+              <a href='/'>Pali Per Recizioni</a>
             </li>
             <li className='app__flex p-text' key='Staccionate'>
-              <a href=''>Pali Per Staccionate</a>
+              <a href='/'>Pali Per Staccionate</a>
             </li>
             <li className='app__flex p-text' key='Filagne'>
-              <a href=''>Filagne</a>
+              <a href='/'>Filagne</a>
             </li>
             <li className='app__flex p-text' key='Cancelli'>
-              <a href=''>Cancelli Rustici e Maremmani</a>
+              <a href='/'>Cancelli Rustici e Maremmani</a>
             </li>
             <li className='app__flex p-text' key='Animali'>
-              <a href=''>Pali Per Contenimento Animali</a>
+              <a href='/'>Pali Per Contenimento Animali</a>
             </li>
             <li className='app__flex p-text' key='Vivaio'>
-              <a href=''>Pali Uso Vivaio</a>
+              <a href='/'>Pali Uso Vivaio</a>
             </li>
             <li className='app__flex p-text' key='Viminate'>
-              <a href=''>Viminate</a>
+              <a href='/'>Viminate</a>
             </li>
             <li className='app__flex p-text' key='Legna'>
-              <a href=''>Legna Da Ardere</a>
+              <a href='/'>Legna Da Ardere</a>
             </li>
           </ul>
         </div>

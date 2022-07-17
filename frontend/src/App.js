@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout';
-import { Homepage, Products, NoPage, Contacts } from './pages';
+import { Homepage, Products, NoPage, Contacts, Quote } from './pages';
 
 import './dist/css/bootstrap.css';
 import './App.scss';
@@ -16,6 +16,7 @@ const App = () => {
                         <Route index element={<Homepage />} />
                         <Route path='prodotti' element={<Products />} />
                         <Route path='contatti' element={<Contacts />} />
+                        <Route path='preventivo' element={<Quote />} />
                         <Route path='*' element={<NoPage />} />
                     </Route>
                 </Routes>
