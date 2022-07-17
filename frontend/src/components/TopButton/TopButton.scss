@@ -1,0 +1,23 @@
+.app__topbutton {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+
+    button {
+        border: 3px;
+        border-style: solid;
+        border-color: var(--secondary-color);
+        border-radius: 600px;
+        outline: none;
+        background-color: var(--white-color);
+        cursor: pointer;
+        padding: 10px;
+
+        img {
+            width: 25px;
+            height: 22px;
+        }
+    }
+}
