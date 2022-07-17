@@ -3,6 +3,9 @@ import arrowup from '../assets/arrowup.png';
 import slide1 from '../assets/slide1.jpg';
 import slide2 from '../assets/slide2.jpg';
 import slide3 from '../assets/slide3.jpg';
+import mail from '../assets/mail.png';
+import phone from '../assets/phone.png';
+import wa from '../assets/wa.png';
 
 import animalilogo from '../assets/animali/animali-logo.jpg';
 import cancellilogo from '../assets/cancelli/cancelli-logo.jpg';
@@ -19,6 +22,9 @@ export default {
     slide1,
     slide2,
     slide3,
+    mail,
+    phone,
+    wa,
     animalilogo,
     cancellilogo,
     filagnelogo,

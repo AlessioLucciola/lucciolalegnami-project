@@ -1,10 +1,14 @@
 import React from 'react';
+import { ImageSlider } from '../../components';
 
 import './Homepage.scss';
 
 function Homepage() {
   return (
-    <div>Homepage</div>
+    <div>
+      <ImageSlider />
+      Homepage
+    </div>
   )
 }
 

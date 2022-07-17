@@ -1,0 +1,108 @@
+.app__contacts-position {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.app__contacts-position-main {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    div {
+        width: 50%;
+        margin: auto;
+        padding: 1rem;
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+}
+
+.app__contacts-position-text {
+    text-align: center;
+
+    strong {
+        font-weight: 500;
+    }
+}
+
+.app__contacts-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.app__contacts-details-main {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    div {
+        width: 100%;
+        margin: auto;
+        padding: 1rem;
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            flex-direction: column;
+        }
+    }
+}
+
+.app__contacts-details-text {
+    text-align: center;
+
+    strong {
+        font-weight: 500;
+    }
+}
+
+.app__contacts-details-links {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+
+    a {
+        padding: 0 2rem;
+        text-align: center;
+        text-decoration: none;
+        color: var(--black-color);
+        transform: all 0.5s ease-in-out;
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            padding: 0.5rem 0.5rem;
+
+            @media screen and (max-width: 800px) {
+                padding: 1rem 2rem;
+            }
+        }
+    }
+}
