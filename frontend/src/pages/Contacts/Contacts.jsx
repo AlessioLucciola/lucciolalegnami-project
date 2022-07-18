@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
-import { DividerLine} from '../../components';
+import { DividerLine } from '../../components';
 import { images } from '../../constants';
 import './Contacts.scss';
 

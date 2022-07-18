@@ -23,7 +23,7 @@ function NoPage() {
       <div className='app__nopage app__container'>
         <h1>Errore 404!</h1>
         <DividerLine />
-        <text>La risorsa richiesta non è stata trovata</text>
+        <p>La risorsa richiesta non è stata trovata</p>
         <button onClick={() => navigate('/')}>Vai alla Homepage</button>
       </div>
     </div>
