@@ -10,7 +10,7 @@ import './App.scss';
 const App = () => {
     return (
         <div className="app">
-            <BrowserRouter forceRefresh={true}>
+            <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<Layout />} >
                         <Route index element={<Homepage />} />
