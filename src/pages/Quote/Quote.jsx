@@ -1,74 +1,127 @@
 import React, { useState } from 'react';
-import { useStateWithCallback } from '../../utils';
 import { MDBTypography } from 'mdb-react-ui-kit';
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from 'axios';
 
-import { DividerLine, ImageSlider } from '../../components';
+import { DividerLine, ImageSlider, Popup } from '../../components';
 import './Quote.scss';
 
 function Quote() {
-  const [name, setName] = useStateWithCallback('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [captcha, setCaptcha] = useState('');
+  const [formValues, setFormValues] = useState({ name: '', surname: '', email: '', phone: '', request: '', captcha: '' });
+  const [focused, setFocused] = useState({ name: false, surname: false, email: false, phone: false, request: false, captcha: false });
+  const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
+  const [loading, setLoading] = useState(0);
 
-  const [nameValid, setNameValid] = useState('def');
-  const [surnameValid, setSurnameValid] = useState('def');
-  const [emailValid, setEmailValid] = useState('def');
-  const [phoneValid, setPhoneValid] = useState('def');
-  const [messageValid, setMessageValid] = useState('def');
-  const [captchaValid, setCaptchaValid] = useState('def');
+  const inputs = [
+    {
+      id: 'i1',
+      name: 'name',
+      type: 'text',
+      placeholder: 'Nome*',
+      label: 'name',
+      errormessage: 'Il campo nome non può essere vuoto!',
+      required: true,
+      focused: false
+    },
+    {
+      id: 'i2',
+      name: 'surname',
+      type: 'text',
+      placeholder: 'Cognome*',
+      label: 'surname',
+      errormessage: 'Il campo cognome non può essere vuoto!',
+      required: true
+    },
+    {
+      id: 'i3',
+      name: 'email',
+      type: 'text',
+      placeholder: 'Email*',
+      label: 'email',
+      errormessage: 'Inserire un indirizzo email valido!',
+      pattern: '^[a-zA-Z0-9]+@(?:[a-zA-Z0-9.])+[.]+[?:A-Za-z]+$',
+      required: true
+    },
+    {
+      id: 'i4',
+      name: 'phone',
+      type: 'text',
+      placeholder: 'Telefono*',
+      label: 'phone',
+      errormessage: 'Inserire un numero di telefono valido!',
+      pattern: '^(?:[+]?)(?:[0-9] ?){6,14}[0-9]$',
+      required: true
+    },
+  ]
 
-  const [loading, setLoading] = useState('');
-
-  const recaptchaRef = React.createRef();
-
-  const captchaUpdate = () => {
-    const recaptchaValue = recaptchaRef.current.getValue();
-    setCaptcha(recaptchaValue);
-  }
-
-  const formValidator = () => {
-    //Name Validator
-    if (name.length===0) setNameValid(false)
-    else setNameValid(true);
-    //Surname Validator
-    if (name.length===0) setSurnameValid(false)
-    else setSurnameValid(true);
-    //Email Validator
-    if (!/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(email)) setEmailValid(false)
-    else setEmailValid(true);
-    //Phone Validator
-    if (!/^(?:[+]?)(?:[0-9] ?){6,14}[0-9]$/.test(phone)) setPhoneValid(false)
-    else setPhoneValid(true);
-    //Request Validator
-    if (message.length<10 || message.length>700) setMessageValid(false)
-    else setMessageValid(true);
-    //Captcha Validator
-    if (captcha.length===0) setCaptchaValid(false)
-    else setCaptchaValid(true);
-
-    return nameValid && surnameValid && emailValid && phoneValid && messageValid && captchaValid;
-  }
+  const textareas = [
+    {
+      id: 't1',
+      name: 'request',
+      type: 'text',
+      placeholder: 'La tua richiesta*',
+      label: 'request',
+      errormessage: 'Il campo richiesta non può essere vuoto!',
+      required: true
+    }
+  ]
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formValidator()) {
-      setLoading(true);
-
-      let formData = {
-        name: name,
-        surname: surname,
-        email: email,
-        phone: phone,
-        message: message,
-        captcha: captcha
-      }
-
-      console.log(formData)
+    setLoading(true);
+    
+    let formData = {
+      name: formValues['name'],
+      surname: formValues['surname'],
+      email: formValues['email'],
+      phone: formValues['phone'],
+      request: formValues['request'],
+      captcha: formValues['captcha']
     }
+
+    if (formValues.captcha === '') {
+      setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Per continuare devi completare il ReCaptcha'});
+    } else {
+      axios.post('api/sendMail.php', formData)
+      .then(function (response) {
+          if (response.status === 200)
+          {
+            setPopup({'trigger': true, 'title': 'Richiesta Inviata!', 'description': 'Riceverai una risposta entro 48 ore lavorative.'});
+            setLoading(false);
+          } else if (response.status === 500) {
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore interno al server. Contattaci telefonicamente per risolvere il problema.'});
+            setLoading(false);
+          } else if (response.status === 401) {
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Autenticazione non andata a buon fine. Se non sei un robot, ricarica la pagina e riprova.'});
+            setLoading(false);
+          } else {
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Contattaci telefonicamente per risolvere il problema.'});
+            setLoading(false);
+          }
+      })
+      .catch(function (error) {
+          setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore interno al server. Contattaci telefonicamente per risolvere il problema.'});
+          setLoading(false);
+      });
+    }
+  }
+
+  const onChange = (e) => {
+    setFormValues({...formValues, [e.target.name]: e.target.value})
+  };
+
+  const recaptchaRef = React.createRef();
+  const captchaUpdate = (e) => {
+    const recaptchaValue = recaptchaRef.current.getValue();
+    setFormValues({...formValues, 'captcha': recaptchaValue});
+  }
+
+  const handleFocus = (e) => {
+    setFocused({...focused, [e.target.name]: true});
+  }
+
+  const closePopup = () => {
+    setPopup({...popup, 'trigger': false});
   }
 
   return (
@@ -82,46 +135,25 @@ function Quote() {
             Per richiedere un preventivo online si prega di compilare il form qui di seguito
           </MDBTypography>
         </div>
-        <form className='app__quote-form'>
+        <form className='app__quote-form' onSubmit={handleSubmit}>
           <h5>Richiedi un preventivo online</h5>
-          <div>
-            <input className='p-text' type='text' placeholder='Nome*' name='name' value={name} onChange={(e) => setName(e.target.value)} />
-            {!nameValid ? (
-              <p>Inserire un nome valido</p>
-            ) : ('')}
-          </div>
-          <div>
-            <input className='p-text' type='text' placeholder='Cognome*' name='surname' value={surname} onChange={(e) => setSurname(e.target.value)} />
-            {!surnameValid ? (
-              <p>Inserire un cognome valido</p>
-            ) : ('')}
-          </div>
-          <div>
-            <input className='p-text' type='text' placeholder='Email*' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-            {!emailValid ? (
-              <p>Inserire una email valida</p>
-            ) : ('')}
-          </div>
-          <div>
-            <input className='p-text' type='text' placeholder='Telefono*' name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} />
-            {!phoneValid ? (
-              <p>Inserire un numero valido</p>
-            ) : ('')}
-          </div>
-          <div>
-            <textarea className='p-text' type='text' placeholder='La tua Richiesta*' name='message' value={message} onChange={(e) => setMessage(e.target.value)} />
-            {!messageValid ? (
-              <p>La richiesta deve contenere tra i 10 e i 700 caratteri</p>
-            ) : ('')}
-          </div>
+          {inputs.map(input => (
+              <div key={input.id}>
+                <input className='p-text' {...input} value={formValues[input.name]} onChange={onChange} onBlur={(e) => handleFocus(e)} focused={focused[input.name].toString()} required />
+                <span>{input.errormessage}</span>
+              </div>
+          ))}
+          {textareas.map(textarea => (
+              <div key={textarea.id}>
+                <textarea className='p-text' {...textarea} value={formValues[textarea.name]} onChange={onChange} onBlur={handleFocus} focused={focused[textarea.name].toString()} required />
+                <span>{textarea.errormessage}</span>
+              </div>
+          ))}
           <div className='app__quote-recaptcha'>
             Completa il ReCAPTCHA per continuare:
-            <ReCAPTCHA ref={recaptchaRef} sitekey={process.env.REACT_APP_CAPTCHA_KEY} onChange={captchaUpdate} />
-            {!captchaValid ? (
-              <p>Selezionare la casella per continuare</p>
-            ) : ('')}
+            <ReCAPTCHA name='captcha' ref={recaptchaRef} sitekey={process.env.REACT_APP_CAPTCHA_KEY} onChange={captchaUpdate} required />
           </div>
-          <button type='button' className='p-text' onClick={handleSubmit}>
+          <button type='submit' className='p-text'>
             {loading ? 'Invio in corso' : 'Invia Richiesta'}
           </button>
           <hr />
@@ -129,6 +161,8 @@ function Quote() {
           Inviando il presente modulo autorizzo il trattamento dei dati personali ai sensi del D.Lgs 196/2003
         </form>
       </div>
+
+      <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={closePopup} />
     </div>
   )
 }

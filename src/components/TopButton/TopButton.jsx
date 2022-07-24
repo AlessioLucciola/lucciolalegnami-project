@@ -25,7 +25,7 @@ function TopButton() {
     <> 
       <div className='app__topbutton'>
         { button && (<button onClick={buttonHandler}>
-          <img src={images.arrowup}></img>
+          <img src={images.arrowup} alt='arrowup'></img>
         </button>)}
       </div>
     </>

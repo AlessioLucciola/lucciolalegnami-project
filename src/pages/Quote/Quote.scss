@@ -33,7 +33,7 @@
         width: 80%;
         margin: 0.5rem 0;
         border-radius: 10px;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
 
         input, textarea {
             width: 100%;
@@ -74,9 +74,17 @@
         cursor: pointer;
     }
 
-    p {
-        margin: 0 0;
+    span {
+        display: none;
         color: red;
+    }
+
+    input:invalid[focused="true"] ~ span {
+        display: block;
+    }
+
+    textarea:invalid[focused="true"] ~ span {
+        display: block;
     }
 }
 
