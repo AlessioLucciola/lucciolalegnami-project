@@ -26,7 +26,7 @@
 		$request = $data->request;
 		$captcha = $data->captcha;
 		
-		if(empty($captcha)){
+		if(empty($captcha)) {
 			http_response_code(401);
 			echo 'Completa il CAPTCHA per continuare.';
 			exit;
@@ -38,33 +38,32 @@
 
 		if($decodeGoogleResponse['success'] == 1)
 		{
-		
-		$newEmail = new \SendGrid\Mail\Mail(); 
-		$newEmail->setFrom("lucciolalegnami@altervista.org", "LucciolaLegnami - Preventivi");
-		$newEmail->setSubject("Richiesta Preventivo - " . $name . " " . $surname);
-		$newEmail->addTo("lucciolalegnami@live.it", "LucciolaLegnami");
-		$newEmail->setReplyTo($email);
-		$newEmail->addContent("text/html", "<h3><strong>Hai ricevuto una richiesta di preventivo:</strong></h3><br>Nome: " . $name . "<br>Cognome: " . $surname . "<br>Email: " . $email . "<br>Telefono: " . $phone . "<br>Richiesta: " . $request . "<br><hr>Per rispondere a questa email, clicca su rispondi.");
+			$newEmail = new \SendGrid\Mail\Mail(); 
+			$newEmail->setFrom($sentFromEmail, "LucciolaLegnami - Preventivi");
+			$newEmail->setSubject("Richiesta Preventivo - " . $name . " " . $surname);
+			$newEmail->addTo($sentToEmail, "LucciolaLegnami");
+			$newEmail->setReplyTo($email);
+			$newEmail->addContent("text/html", "<h3><strong>Hai ricevuto una richiesta di preventivo:</strong></h3><br>Nome: " . $name . "<br>Cognome: " . $surname . "<br>Email: " . $email . "<br>Telefono: " . $phone . "<br>Richiesta: " . $request . "<br><hr>Per rispondere a questa email, clicca su rispondi.");
 
-		$sendgrid = new \SendGrid($sendgridApiKey);
-		try {
-			$response = $sendgrid->send($newEmail);
-			if($response->statusCode() == 202 || $response->statusCode() == 200) {
-			http_response_code(200);
+			$sendgrid = new \SendGrid($sendgridApiKey);
+			try {
+				$response = $sendgrid->send($newEmail);
+				if($response->statusCode() == 202 || $response->statusCode() == 200) {
+					http_response_code(200);
+				}
+				else {
+					http_response_code(500);
+					echo 'Si è verificato un errore. Riprova più tardi.';
+				}
+			} catch (SendGridException $e) {
+				http_response_code(500);
+				echo 'Caught exception: '. $e->getMessage() ."\n";
 			}
-			else {
-			http_response_code(500);
-			echo 'Si è verificato un errore. Riprova più tardi.';
-			}
-		} catch (SendGridException $e) {
-			http_response_code(500);
-			echo 'Caught exception: '. $e->getMessage() ."\n";
-		}
 		}
 		else
 		{
-		http_response_code(401);
-		echo 'Autenticazione non andata a buon fine. Se non sei un robot, ricarica la pagina e riprova.';
+			http_response_code(401);
+			echo 'Autenticazione non andata a buon fine. Se non sei un robot, ricarica la pagina e riprova.';
 		}
 	}
 	else
