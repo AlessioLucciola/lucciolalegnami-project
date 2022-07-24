@@ -17,6 +17,7 @@
     "react-document-meta": "^3.0.0-beta.2",
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",
+    "react-grid-gallery": "^0.5.5",
     "react-icons": "^4.4.0",
     "react-iubenda-policy": "^0.1.1",
     "react-router-dom": "^6.3.0",

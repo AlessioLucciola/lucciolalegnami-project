@@ -6,6 +6,8 @@ import slide3 from '../assets/slide3.jpg';
 import mail from '../assets/mail.png';
 import phone from '../assets/phone.png';
 import wa from '../assets/wa.png';
+import hmp1 from '../assets/hmp1.jpg';
+import hmp2 from '../assets/hmp2.jpg';
 
 import animalilogo from '../assets/animali/animali-logo.jpg';
 import cancellilogo from '../assets/cancelli/cancelli-logo.jpg';
@@ -25,6 +27,8 @@ export default {
     mail,
     phone,
     wa,
+    hmp1,
+    hmp2,
     animalilogo,
     cancellilogo,
     filagnelogo,
