@@ -1,0 +1,80 @@
+.app__wood-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    text-align: center;
+
+    h3 {
+        padding-bottom: 0.5rem;
+    }
+
+    span {
+        padding-top: 1rem;
+    }
+}
+
+.app__wood-description-sections {
+    width: 100%;
+
+    strong {
+        font-weight: 500;
+        font-size: 22px;
+    }
+}
+
+.app__wood-description-section {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+
+    div {
+        width: 50%;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+
+        div {
+            width: 100%;
+        }
+    }
+
+    button {
+        margin: 1.5rem 0;
+        padding: 0.5rem 0.5rem;
+        border-radius: 20px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--white-color);
+
+        a {
+            color: var(--black-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+.app__wood-description-section-photo {
+    display: flex;
+    width: 50%;
+
+    img {
+        max-inline-size: 100%;
+        block-size: auto;
+        border-radius: 20px;
+    }
+}

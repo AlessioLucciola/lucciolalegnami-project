@@ -11,8 +11,8 @@ import buttonquote from '../assets/buttonquote.jpg';
 import hmp1 from '../assets/hmp1.jpg';
 import hmp2 from '../assets/hmp2.jpg';
 import wood1 from '../assets/wood1.jpg';
-import wood2 from '../assets/wood1.jpg';
-import wood3 from '../assets/wood1.jpg';
+import wood2 from '../assets/wood2.jpg';
+import wood3 from '../assets/wood3.jpg';
 
 import animalilogo from '../assets/animali/animali-logo.jpg';
 import cancellilogo from '../assets/cancelli/cancelli-logo.jpg';
