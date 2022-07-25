@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MDBTypography } from 'mdb-react-ui-kit';
 
-import { ImageSlider, DividerLine } from '../../components';
+import { ImageSlider, DividerLine, ButtonProducts, ButtonQuote } from '../../components';
 import { images } from '../../constants';
 import './Homepage.scss';
 
@@ -20,6 +20,8 @@ function Homepage() {
           </MDBTypography>
         </span>
 
+        <ButtonProducts />
+        
         <div className='app__homepage-sections'>
           <h4>Chi siamo</h4>
           <DividerLine />
@@ -46,6 +48,8 @@ function Homepage() {
               <button><Link to='/legnoutilizzato'>Scopri di più sul legno utilizzato</Link></button>
             </div>
           </div>
+
+          <ButtonQuote />
         </div>
       </div>
     </div>

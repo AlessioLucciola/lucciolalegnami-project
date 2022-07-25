@@ -1,3 +1,13 @@
+.app__contacts-map {
+    iframe {
+    height: 500px;
+    margin: 0;
+    }
+    div {
+        padding: 0;
+    }
+}
+
 .app__contacts-position {
     display: flex;
     flex-direction: column;
