@@ -14,14 +14,14 @@ import wood1 from '../assets/wood1.jpg';
 import wood2 from '../assets/wood2.jpg';
 import wood3 from '../assets/wood3.jpg';
 
-import animalilogo from '../assets/animali/animali-logo.jpg';
+import furcinelogo from '../assets/furcine/furcine-logo.jpg';
 import cancellilogo from '../assets/cancelli/cancelli-logo.jpg';
 import filagnelogo from '../assets/filagne/filagne-logo.jpg';
-import legnalogo from '../assets/legna/legna-logo.jpg';
+import legnadaarderelogo from '../assets/legnadaardere/legnadaardere-logo.jpg';
 import recinzionilogo from '../assets/recinzioni/recinzioni-logo.jpg';
 import staccionatelogo from '../assets/staccionate/staccionate-logo.jpg';
 import viminatelogo from '../assets/viminate/viminate-logo.jpg';
-import vivaiologo from '../assets/vivaio/vivaio-logo.jpg';
+import sostegnopiantelogo from '../assets/sostegnopiante/sostegnopiante-logo.jpg';
 
 export default {
     logo,
@@ -39,12 +39,12 @@ export default {
     wood1,
     wood2,
     wood3,
-    animalilogo,
+    furcinelogo,
     cancellilogo,
     filagnelogo,
-    legnalogo,
+    legnadaarderelogo,
     recinzionilogo,
     staccionatelogo,
     viminatelogo,
-    vivaiologo
+    sostegnopiantelogo
 };

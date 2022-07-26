@@ -25,3 +25,4 @@ yarn-error.log*
 
 #api
 /api/config.php
+/api/dbConnect.php

@@ -1,23 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
+import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 
-import { DividerLine, ImageSlider } from '../../components';
+import { DividerLine, ImageSlider, Popup } from '../../components';
 
 import { images } from '../../constants';
 import './Products.scss';
 
 function Products() {
+  const [products, setProducts] = useState([]);
+  const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
+
+  useEffect(() => {
+    getProductsList();
+  }, []);
+
+  const getProductsList = () => {
+    axios.get('api/productsList.php')
+    .then(function(response) {
+      if (response.status === 200) {
+        const allProductsList = response.data.products;
+        setProducts(allProductsList);
+      } else {
+        setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
+      }
+    })
+    .catch(function(error) {
+      setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore con il server. Ti preghiamo di riprovare più tardi.'});
+    })
+  }
 
   const getImgPath = (item) => {
     return images[item];
   }
 
-  const allProducts = [
-    { name: 'Pali per recinzioni', description: 'Robusti pali da recinzione di diverse lunghezze e diametro.', cardImg: 'recinzionilogo', pagePath: 'recinzioni' },
-    { name: 'Staccionate', description: 'Pali per staccionate. Stile “Croce di Sant’Andrea”, con singole o doppie traverse, ecc..', cardImg: 'staccionatelogo', pagePath: 'staccionate' }
-  ]
+  const closePopup = () => {
+    setPopup({...popup, 'trigger': false});
+  }
 
   return (
     <div>
@@ -31,10 +52,10 @@ function Products() {
           </MDBTypography>
         </div>
         <Row className='h-100'>
-          {allProducts.map((item, index) => (
+          {products.length > 0 ? (products.map((item, index) => (
             <div className='app__products-card col-sm d-flex justify-content-center' key={index}>
               <Card className='h-100' style={{width: '18rem'}}>
-                <Card.Img variant='top' src={getImgPath(item.cardImg)} alt={`${item.cardImg}`} />
+                <Card.Img variant='top' src={getImgPath(item.shortname+'logo')} alt={`${item.shortname}-logo`} />
                 <Card.Body>
                   <Card.Title>{item.name}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>
@@ -44,9 +65,11 @@ function Products() {
                 </Card.Footer>
               </Card>
             </div>
-          ))}
+          ))) : ''}
         </Row>
       </div>
+
+      <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={closePopup} />
     </div>
   )
 }
