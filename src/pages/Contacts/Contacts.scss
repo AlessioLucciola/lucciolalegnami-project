@@ -1,8 +1,17 @@
 .app__contacts-map {
     iframe {
-    height: 500px;
-    margin: 0;
+        height: 800px;
+        margin: 0;
+
+        @media screen and (max-width: 1050px) {
+            height: 500px;
+        }
+
+        @media screen and (max-width: 500px) {
+            height: 200px;
+        }
     }
+
     div {
         padding: 0;
     }

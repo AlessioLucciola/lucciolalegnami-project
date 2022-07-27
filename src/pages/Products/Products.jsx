@@ -18,7 +18,7 @@ function Products() {
   }, []);
 
   const getProductsList = () => {
-    axios.get('api/productsList.php')
+    axios.get('http://localhost:80/api/productsList.php')
     .then(function(response) {
       if (response.status === 200) {
         const allProductsList = response.data.products;

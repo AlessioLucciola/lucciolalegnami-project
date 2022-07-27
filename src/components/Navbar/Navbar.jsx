@@ -88,27 +88,25 @@ function Navbar() {
             </motion.span>
 
             <ul className='app__navbar-links'>
-              <li className='app__flex p-text' key={'lm-Homepage'}>
+              <li className='app__flex p-text' key={'lm-Homepage'} onClick={(e) => handleMenuOnClick(e)}>
                 <Link to='/'>Homepage</Link>
               </li>
-              <li className='app__flex p-text' key='lm-ElencoProdotti'>
+              <li className='app__flex p-text' key='lm-ElencoProdotti' onClick={(e) => handleMenuOnClick(e)}>
                 <Link to='/prodotti'>Elenco Prodotti ▼</Link>
               </li>
-              <li className='app__flex p-text' key='lm-LegnoUtilizzato'>
+              <li className='app__flex p-text' key='lm-LegnoUtilizzato' onClick={(e) => handleMenuOnClick(e)}>
                 <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
               </li>
-              <li className='app__flex p-text' key='lm-Contatti'>
+              <li className='app__flex p-text' key='lm-Contatti' onClick={(e) => handleMenuOnClick(e)}>
                 <Link to='/contatti'>Contatti</Link>
               </li>
-              <li className='app__flex p-text' key='lm-Preventivo'>
+              <li className='app__flex p-text' key='lm-Preventivo' onClick={(e) => handleMenuOnClick(e)}>
                 <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
               </li>
             </ul>
           </motion.div>
         )}
       </div>
-
-      
     </nav>
     
   )
