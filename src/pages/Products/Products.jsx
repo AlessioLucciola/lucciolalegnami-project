@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
@@ -55,13 +56,13 @@ function Products() {
           {products.length > 0 ? (products.map((item, index) => (
             <div className='app__products-card col-sm d-flex justify-content-center' key={index}>
               <Card className='h-100' style={{width: '18rem'}}>
-                <Card.Img variant='top' src={getImgPath(item.shortname+'logo')} alt={`${item.shortname}-logo`} />
+                <Link to={item.shortname}><Card.Img variant='top' src={getImgPath(item.shortname+'logo')} alt={`${item.shortname}-logo`} /></Link>
                 <Card.Body>
                   <Card.Title>{item.name}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    
+                  <button><Link to={item.shortname}>Visualizza Scheda Prodotti</Link></button>
                 </Card.Footer>
               </Card>
             </div>

@@ -7,4 +7,23 @@
     width: 17rem;
     margin: 2rem 0;
     text-align: center;
+
+    button {
+        margin: 1rem 0;
+        padding: 0 0.5rem;
+        border-radius: 15px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--white-color);
+
+        a {
+            color: var(--black-color);
+            text-decoration: none;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
 }
