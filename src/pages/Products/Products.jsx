@@ -19,7 +19,7 @@ function Products() {
   }, []);
 
   const getProductsList = () => {
-    axios.get('http://localhost:80/api/productsList.php')
+    axios.get('http://localhost:80/api/productCategory.php')
     .then(function(response) {
       if (response.status === 200) {
         const allProductsList = response.data.products;
@@ -59,7 +59,7 @@ function Products() {
                 <Link to={item.shortname}><Card.Img variant='top' src={getImgPath(item.shortname+'logo')} alt={`${item.shortname}-logo`} /></Link>
                 <Card.Body>
                   <Card.Title>{item.name}</Card.Title>
-                  <Card.Text>{item.description}</Card.Text>
+                  <Card.Text>{item.shortdescription}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   <button><Link to={item.shortname}>Visualizza Scheda Prodotti</Link></button>
