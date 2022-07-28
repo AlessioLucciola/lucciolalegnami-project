@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
 import axios from 'axios';
+import Accordion from 'react-bootstrap/Accordion';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -119,7 +120,16 @@ function Product() {
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                      
+                      <Accordion>
+                        <Accordion.Item>
+                          <Accordion.Header>
+                              <button>Visualizza Galleria Immagini</button>
+                          </Accordion.Header>
+                          <Accordion.Body>
+                            
+                          </Accordion.Body>
+                        </Accordion.Item>
+                      </Accordion>
                     </Card.Footer>
                   </Col>
                 </Row>
