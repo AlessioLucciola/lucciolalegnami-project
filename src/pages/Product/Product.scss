@@ -1,0 +1,22 @@
+.app__product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.app__product-cards {
+    padding: 1rem;
+}
+.app__product-description {
+    padding: 1rem;
+}
+
+.app__product-card {
+    width: 100%;
+
+    p {
+        margin: 0;
+    }
+}

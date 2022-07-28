@@ -36,7 +36,7 @@
               while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {          
                   $data[] = $row; 
               };
-            $response['products'] =  $data;
+            $response['products'] = $data;
             } else {
               http_response_code(500);
               $response['message'] = 'Errore interno al server: impossibile recuperare la lista dei prodotti.';
