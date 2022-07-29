@@ -23,6 +23,11 @@ import staccionatelogo from '../assets/staccionate/staccionate-logo.jpg';
 import viminatelogo from '../assets/viminate/viminate-logo.jpg';
 import sostegnopiantelogo from '../assets/sostegnopiante/sostegnopiante-logo.jpg';
 
+const productImages = {
+    'sostegnopiante' : [recinzionilogo, viminatelogo],
+    '' : []
+}
+
 export default {
     logo,
     arrowup,
@@ -46,5 +51,6 @@ export default {
     recinzionilogo,
     staccionatelogo,
     viminatelogo,
-    sostegnopiantelogo
+    sostegnopiantelogo,
+    productImages
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
 import axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion';
+import Gallery from 'react-grid-gallery';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -47,12 +48,27 @@ function Product() {
     setPopup({...popup, 'trigger': false});
   }
 
-  const getImgPath = (item) => {
-    return images[item];
+  function loadImages(productName) {
+    console.log(productName)
+    const imagesPaths = images.productImages[productName];
+    const gallery = [];
+    if (imagesPaths) {
+      imagesPaths.forEach(element => {
+      const galleryItem = {
+        src: element,
+        thumbnail: element,
+        thumbnailWidth: 100,
+        thumbnailHeight: 100,
+        alt: ''
+      };
+      gallery.push(galleryItem);
+      })
+    }
+    return gallery;
   }
 
   return (
-    <>
+    <div>
       <ImageSlider />
       <div className='app__product app__container'>
         <h1>{category['name']}</h1>
@@ -76,45 +92,44 @@ function Product() {
                       <Card.Text>
                         {item.characteristics !== '' ? (
                           <>
-                            <strong>Caratteristiche:</strong>
-                            <p>{item.characteristics}</p>
+                            <strong>Caratteristiche:</strong><br/>
+                            {item.characteristics}<br/>
                           </>
                         ) : '' }
                         {item.description !== '' ? (
                           <>
-                            <strong>Descrizione:</strong>
-                            <p>{item.description}</p>
+                            <strong>Descrizione:</strong><br/>
+                            {item.description}<br/>
                           </>
                         ) : '' }
                         {item.dimension !== '' ? (
                           <>
-                            <strong>Altezze Disponibili:</strong>
-                            <p>{item.dimension}</p>
+                            <strong>Altezze Disponibili:</strong><br/>
+                            {item.dimension}<br/>
                           </>
                         ) : '' }
                         {item.diameter !== '' ? (
                           <>
-                            <strong>Diametro:</strong>
-                            <p>{item.diameter}</p>
+                            <strong>Diametro:</strong><br/>
+                            {item.diameter}<br/>
                           </>
                         ) : '' }
                         {item.tipologies !== '' ? (
                           <>
-                            <strong>Tipologie:</strong>
-                            <p>{item.tipologies}</p>
+                            <strong>Tipologie:</strong><br/>
+                            {item.tipologies}<br/>
                           </>
                         ) : '' }
-                        <hr/>
                         {item.uses !== '' ? (
                           <>
-                            <strong>Possibili utilizzi:</strong>
-                            <p>{item.uses}</p>
+                            <strong>Possibili utilizzi:</strong><br/>
+                            {item.uses}<br/>
                           </>
                         ) : '' }
                         {item.woodtype !== '' ? (
                           <>
-                            <strong>Legno utilizzato:</strong>
-                            <p>{item.woodtype}</p>
+                            <strong>Legno utilizzato:</strong><br/>
+                            {item.woodtype}<br/>
                           </>
                         ) : '' }
                       </Card.Text>
@@ -123,10 +138,12 @@ function Product() {
                       <Accordion>
                         <Accordion.Item>
                           <Accordion.Header>
-                              <button>Visualizza Galleria Immagini</button>
+                              Visualizza Galleria Immagini
                           </Accordion.Header>
                           <Accordion.Body>
-                            
+                            <div>
+                              <Gallery images={loadImages(item.shortname)} />
+                            </div>
                           </Accordion.Body>
                         </Accordion.Item>
                       </Accordion>
@@ -140,7 +157,7 @@ function Product() {
       </div>
 
       <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={closePopup} />
-    </>
+    </div>
   )
 }
 
