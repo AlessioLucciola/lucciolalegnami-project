@@ -25,7 +25,7 @@ import sostegnopiantelogo from '../assets/sostegnopiante/sostegnopiante-logo.jpg
 
 const productImages = {
     'sostegnopiante' : [recinzionilogo, viminatelogo],
-    '' : []
+    'prova' : [staccionatelogo]
 }
 
 export default {

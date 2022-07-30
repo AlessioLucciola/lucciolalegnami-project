@@ -53,7 +53,7 @@ function Products() {
           </MDBTypography>
         </div>
         <Row className='h-100'>
-          {products.length > 0 ? (products.map((item, index) => (
+          {products ? (products.map((item, index) => (
             <div className='app__products-card col-sm d-flex justify-content-center' key={index}>
               <Card className='h-100' style={{width: '18rem'}}>
                 <Link to={item.shortname}><Card.Img variant='top' src={getImgPath(item.shortname+'logo')} alt={`${item.shortname}-logo`} /></Link>
@@ -66,7 +66,7 @@ function Products() {
                 </Card.Footer>
               </Card>
             </div>
-          ))) : ''}
+          ))) : 'Nessun prodotto da visualizzare'}
         </Row>
       </div>
 

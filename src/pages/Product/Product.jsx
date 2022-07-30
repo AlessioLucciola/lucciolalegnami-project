@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { MDBTypography } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import Accordion from 'react-bootstrap/Accordion';
-import Gallery from 'react-grid-gallery';
+import { MDBTypography } from 'mdb-react-ui-kit';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import { ImageSlider, DividerLine, Popup } from '../../components';
+import { ImageSlider, DividerLine, Popup, Lightbox } from '../../components';
 import { images } from '../../constants';
 import './Product.scss';
 
@@ -15,6 +13,7 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState({name: '', description: ''});
   const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
+  const [lightbox, setLightbox] = useState({trigger: false, images: {}});
   
   useEffect(() => {
     const currentProduct = (window.location.href).substring((window.location.href).lastIndexOf('/') + 1);
@@ -48,25 +47,24 @@ function Product() {
     setPopup({...popup, 'trigger': false});
   }
 
-  function loadImages(productName) {
-    console.log(productName)
-    const imagesPaths = images.productImages[productName];
+  const closeLightbox = () => {
+    setLightbox({...popup, 'trigger': false});
+  }
+
+  const startLightbox = (product) => {
+    const imagesPaths = images.productImages[product.shortname];
     const gallery = [];
     if (imagesPaths) {
       imagesPaths.forEach(element => {
       const galleryItem = {
-        src: element,
-        thumbnail: element,
-        thumbnailWidth: 100,
-        thumbnailHeight: 100,
-        alt: ''
+        url: element,
+        title: product.name
       };
       gallery.push(galleryItem);
       })
     }
-    return gallery;
+    setLightbox({'trigger': true, 'images': gallery});
   }
-
   return (
     <div>
       <ImageSlider />
@@ -135,18 +133,7 @@ function Product() {
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                      <Accordion>
-                        <Accordion.Item>
-                          <Accordion.Header>
-                              Visualizza Galleria Immagini
-                          </Accordion.Header>
-                          <Accordion.Body>
-                            <div>
-                              <Gallery images={loadImages(item.shortname)} />
-                            </div>
-                          </Accordion.Body>
-                        </Accordion.Item>
-                      </Accordion>
+                      <button onClick={() => startLightbox(item)}>Visualizza Galleria Immagini</button>
                     </Card.Footer>
                   </Col>
                 </Row>
@@ -155,7 +142,8 @@ function Product() {
           ))) : ''}
         </div>
       </div>
-
+      
+      <Lightbox trigger={lightbox['trigger']} images={lightbox['images']} onClose={closeLightbox} />
       <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={closePopup} />
     </div>
   )
