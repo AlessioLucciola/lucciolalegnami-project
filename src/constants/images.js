@@ -78,7 +78,6 @@ import furcine2 from '../assets/furcine/furcine2.jpg';
 import furcine3 from '../assets/furcine/furcine3.jpg';
 import furcine4 from '../assets/furcine/furcine4.jpg';
 import furcine5 from '../assets/furcine/furcine5.jpg';
-import sostegnopiante1 from '../assets/furcine/sostegnopiante1.jpg';
 import sostegnopiante2 from '../assets/furcine/sostegnopiante2.jpg';
 import sostegnopiante3 from '../assets/furcine/sostegnopiante3.jpg';
 import sostegnopiante4 from '../assets/furcine/sostegnopiante4.jpg';
@@ -124,7 +123,7 @@ const productImages = {
     'cancello-maremmano': [cancellomaremmano1],
     'cancello-basso': [cancellobasso1],
 
-    'sostegnopiante' : [sostegnopiante1, sostegnopiante2, sostegnopiante3, sostegnopiante4],
+    'sostegnopiante' : [sostegnopiante2, sostegnopiante3, sostegnopiante4],
     'furcine': [furcine1, furcine2, furcine3, furcine4, furcine5],
     'velletrani': [testarini1, testarini2],
     'testarini': [velletrani1, velletrani2, velletrani3, velletrani4],

@@ -66,6 +66,11 @@ function Product() {
     }
     setLightbox({'trigger': true, 'images': gallery});
   }
+
+  const getImgPath = (item) => {
+    return images[item];
+  }
+
   return (
     <div>
       <ImageSlider />
@@ -85,7 +90,7 @@ function Product() {
               <Card className='mb-3 text-center'>
                 <Row className='g-0'>
                   <Col md={4} className='p-2 my-auto'>
-                    <Card.Img src={images.furcinelogo} alt={`${item.shortname}-logo`} />
+                    <Card.Img src={getImgPath(`${item.shortname}logo`)} alt={`${item.shortname}-logo`} />
                   </Col>
                   <Col md={8}>
                     <Card.Body>
