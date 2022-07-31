@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
@@ -10,6 +11,8 @@ import './Navbar.scss'
 function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [dropbarMenu, setDropbarMenu] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
 
   const handleMenuOnClick = (e) => {
     e.stopPropagation();
@@ -22,6 +25,25 @@ function Navbar() {
 
   const closeDropbarMenu = () => {
     setDropbarMenu(false);
+  }
+
+  useEffect(() => {
+    getProductsList();
+  }, []);
+
+  const getProductsList = () => {
+    axios.get('http://localhost:80/api/productCategory.php')
+    .then(function(response) {
+      if (response.status === 200) {
+        const allProductsList = response.data.products;
+        setProducts(allProductsList);
+      } else {
+        setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
+      }
+    })
+    .catch(function(error) {
+      setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore con il server. Ti preghiamo di riprovare più tardi.'});
+    })
   }
 
   return (
@@ -50,30 +72,11 @@ function Navbar() {
       {dropbarMenu && (
         <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
           <ul className='app__navbar-dropbar-links'>
-            <li className='app__flex p-text' key='Recinzioni'>
-              <a href='/'>Pali Per Recizioni</a>
-            </li>
-            <li className='app__flex p-text' key='Staccionate'>
-              <a href='/'>Pali Per Staccionate</a>
-            </li>
-            <li className='app__flex p-text' key='Filagne'>
-              <a href='/'>Filagne</a>
-            </li>
-            <li className='app__flex p-text' key='Cancelli'>
-              <a href='/'>Cancelli Rustici e Maremmani</a>
-            </li>
-            <li className='app__flex p-text' key='Animali'>
-              <a href='/'>Pali Per Contenimento Animali</a>
-            </li>
-            <li className='app__flex p-text' key='Vivaio'>
-              <a href='/'>Pali Uso Vivaio</a>
-            </li>
-            <li className='app__flex p-text' key='Viminate'>
-              <a href='/'>Viminate</a>
-            </li>
-            <li className='app__flex p-text' key='Legna'>
-              <a href='/'>Legna Da Ardere</a>
-            </li>
+            {products ? (products.map((item, index) => (
+              <li className='app__flex p-text' key={item.shortname}>
+                <Link to={`prodotti/${item.shortname}`}>{item.name}</Link>
+              </li>
+            ))) : ''}
           </ul>
         </div>
       )}
@@ -92,7 +95,7 @@ function Navbar() {
                 <Link to='/'>Homepage</Link>
               </li>
               <li className='app__flex p-text' key='lm-ElencoProdotti' onClick={(e) => handleMenuOnClick(e)}>
-                <Link to='/prodotti'>Elenco Prodotti ▼</Link>
+                <Link to='/prodotti'>Elenco Prodotti</Link>
               </li>
               <li className='app__flex p-text' key='lm-LegnoUtilizzato' onClick={(e) => handleMenuOnClick(e)}>
                 <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
