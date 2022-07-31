@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MDBTypography } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
-import { ImageSlider, DividerLine, Popup, Lightbox } from '../../components';
+import { ImageSlider, DividerLine, Popup, Lightbox, ButtonQuote } from '../../components';
 import { images } from '../../constants';
 import './Product.scss';
 
@@ -69,6 +70,8 @@ function Product() {
     <div>
       <ImageSlider />
       <div className='app__product app__container'>
+        <button><Link to='/prodotti'>Torna all'elenco dei prodotti</Link></button>
+        <hr />
         <h1>{category['name']}</h1>
         <DividerLine />
         <div className='app__product-description'>
@@ -141,6 +144,10 @@ function Product() {
             </div>
           ))) : ''}
         </div>
+
+        <ButtonQuote />
+        <hr />
+        <button><Link to='/prodotti'>Torna all'elenco dei prodotti</Link></button>
       </div>
       
       <Lightbox trigger={lightbox['trigger']} images={lightbox['images']} onClose={closeLightbox} />

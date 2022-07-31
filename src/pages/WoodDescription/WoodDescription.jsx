@@ -16,7 +16,7 @@ function WoodDescription() {
         <ButtonProducts />
 
         <div className='app__wood-description-sections'>
-          <h4>Il Legno di castagno</h4>
+          <h4>Il legno di castagno</h4>
           <DividerLine />
           <div className='app__wood-description-section'>
             <div className='app__wood-description-section-text'>

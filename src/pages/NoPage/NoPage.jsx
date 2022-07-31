@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { DividerLine, ImageSlider } from '../../components';
 import './NoPage.scss';
@@ -15,7 +15,7 @@ function NoPage() {
     return () => {
       clearInterval(timer);
     };
-  }, [counter]);
+  }, [counter, navigate]);
 
   return (
     <div>
@@ -24,7 +24,7 @@ function NoPage() {
         <h1>Errore 404!</h1>
         <DividerLine />
         <p>La risorsa richiesta non è stata trovata</p>
-        <button onClick={() => navigate('/')}>Vai alla Homepage</button>
+        <button><Link to='/'>Vai alla Homepage</Link></button>
       </div>
     </div>
   )
