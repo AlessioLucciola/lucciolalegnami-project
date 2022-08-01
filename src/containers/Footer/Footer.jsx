@@ -1,5 +1,5 @@
 import React from 'react';
-import Iubenda from 'react-iubenda-policy';
+import { Link } from 'react-router-dom';
 
 import { BsFacebook, BsTwitter, BsGoogle, BsInstagram, BsYoutube, BsWhatsapp, BsTelephone, BsGithub, BsLockFill } from 'react-icons/bs';
 import { GoLocation } from 'react-icons/go';
@@ -23,19 +23,19 @@ function Footer() {
           <div className='app__footer-useful-links'>
             <strong>COLLEGAMENTI UTILI</strong>
             <li>
-              <a href="/">Cancelli Maremmani</a>
+              <Link to='/prodotti/cancelli'>Cancelli Maremmani</Link>
             </li>
             <li>
-              <a href="/">Pali per recizioni</a>
+              <Link to='/prodotti/recinzioni'>Pali per Recinzioni</Link>
             </li>
             <li>
-              <a href="/">Sostegno piante</a>
+              <Link to='/prodotti/sostegnopiante'>Sostegno Piante</Link>
             </li>
             <li>
-              <a href="/">Staccionate</a>
+              <Link to='/prodotti/staccionate'>Staccionate</Link>
             </li>
             <li>
-              <a href="/">Legna da ardere</a>
+              <Link to='/prodotti/legnadaardere'>Legna da Ardere</Link>
             </li>
           </div>
           <div className='app__footer-useful-info'>
@@ -67,7 +67,7 @@ function Footer() {
           <BsGithub /> Sito web creato da <a href='https://github.com/AlessioLucciola' target="_blank" rel="noreferrer">Alessio Lucciola</a>
         </li>
         <li>
-          <BsLockFill /><Iubenda id={process.env.REACT_APP_IUBENDA_ID} type='cookie'>Cookie Policy</Iubenda>
+          <BsLockFill />Cookie Policy
         </li>
       </div>
     </div>

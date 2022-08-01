@@ -10,7 +10,7 @@ import { ImageSlider, DividerLine, Popup, Lightbox, ButtonQuote } from '../../co
 import { images } from '../../constants';
 import './Product.scss';
 
-function Product() {
+function Product(props) {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState({name: '', description: ''});
   const [popup, setPopup] = useState({trigger: false, title: '', description: ''});

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
+import { Popup } from '../../components';
 import { images } from '../../constants';
 import './Navbar.scss'
 
@@ -46,72 +47,79 @@ function Navbar() {
     })
   }
 
+  const closePopup = () => {
+    setPopup({...popup, 'trigger': false});
+  }
+
   return (
-    <nav className='app__navbar'>
-      <div className='app__navbar-logo'>
-        <Link to='/'><img src={images.logo} alt='logo'/></Link>
-      </div>
-      <ul className='app__navbar-links'>
-        <li className='app__flex p-text' key='l-Homepage'>
-          <Link to='/'>Homepage</Link>
-        </li>
-        <li className={`app__flex p-text ${dropbarMenu ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
-          <Link to='/prodotti'>Elenco Prodotti ▼</Link>
-        </li>
-        <li className='app__flex p-text' key='l-LegnoUtilizzato'>
-          <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
-        </li>
-        <li className='app__flex p-text' key='l-Contatti'>
-          <Link to='/contatti'>Contatti</Link>
-        </li>
-        <li className='app__flex p-text' key='l-Preventivo'>
-          <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
-        </li>
-      </ul>
-
-      {dropbarMenu && (
-        <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
-          <ul className='app__navbar-dropbar-links'>
-            {products ? (products.map((item, index) => (
-              <li className='app__flex p-text' key={item.shortname}>
-                <Link to={`prodotti/${item.shortname}`}>{item.name}</Link>
-              </li>
-            ))) : ''}
-          </ul>
+    <>
+      <nav className='app__navbar'>
+        <div className='app__navbar-logo'>
+          <Link to='/'><img src={images.logo} alt='logo'/></Link>
         </div>
-      )}
+        <ul className='app__navbar-links'>
+          <li className='app__flex p-text' key='l-Homepage'>
+            <Link to='/'>Homepage</Link>
+          </li>
+          <li className={`app__flex p-text ${dropbarMenu ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
+            <Link to='/prodotti'>Elenco Prodotti ▼</Link>
+          </li>
+          <li className='app__flex p-text' key='l-LegnoUtilizzato'>
+            <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
+          </li>
+          <li className='app__flex p-text' key='l-Contatti'>
+            <Link to='/contatti'>Contatti</Link>
+          </li>
+          <li className='app__flex p-text' key='l-Preventivo'>
+            <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
+          </li>
+        </ul>
 
-      <div className='app__navbar-menu'>
-        <HiMenuAlt4 onClick={(e) => handleMenuOnClick(e)}/>
-
-        {toggle && (
-          <motion.div initial={{ width: 0 }} animate={{ width: 300 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
-            <motion.span initial={{ width: 0 }} animate={{ width: 70 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
-              <HiX onClick={(e) => handleMenuOnClick(e)} />
-            </motion.span>
-
-            <ul className='app__navbar-links'>
-              <li className='app__flex p-text' key={'lm-Homepage'} onClick={(e) => handleMenuOnClick(e)}>
-                <Link to='/'>Homepage</Link>
-              </li>
-              <li className='app__flex p-text' key='lm-ElencoProdotti' onClick={(e) => handleMenuOnClick(e)}>
-                <Link to='/prodotti'>Elenco Prodotti</Link>
-              </li>
-              <li className='app__flex p-text' key='lm-LegnoUtilizzato' onClick={(e) => handleMenuOnClick(e)}>
-                <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
-              </li>
-              <li className='app__flex p-text' key='lm-Contatti' onClick={(e) => handleMenuOnClick(e)}>
-                <Link to='/contatti'>Contatti</Link>
-              </li>
-              <li className='app__flex p-text' key='lm-Preventivo' onClick={(e) => handleMenuOnClick(e)}>
-                <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
-              </li>
+        {dropbarMenu && (
+          <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
+            <ul className='app__navbar-dropbar-links'>
+              {products ? (products.map((item, index) => (
+                <li className='app__flex p-text' key={item.shortname}>
+                  <Link to={`prodotti/${item.shortname}`}>{item.name}</Link>
+                </li>
+              ))) : ''}
             </ul>
-          </motion.div>
+          </div>
         )}
-      </div>
-    </nav>
-    
+
+        <div className='app__navbar-menu'>
+          <HiMenuAlt4 onClick={(e) => handleMenuOnClick(e)}/>
+
+          {toggle && (
+            <motion.div initial={{ width: 0 }} animate={{ width: 300 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
+              <motion.span initial={{ width: 0 }} animate={{ width: 70 }} transition={{ duration: 0.2, ease: 'easeOut' }}>
+                <HiX onClick={(e) => handleMenuOnClick(e)} />
+              </motion.span>
+
+              <ul className='app__navbar-links'>
+                <li className='app__flex p-text' key={'lm-Homepage'} onClick={(e) => handleMenuOnClick(e)}>
+                  <Link to='/'>Homepage</Link>
+                </li>
+                <li className='app__flex p-text' key='lm-ElencoProdotti' onClick={(e) => handleMenuOnClick(e)}>
+                  <Link to='/prodotti'>Elenco Prodotti</Link>
+                </li>
+                <li className='app__flex p-text' key='lm-LegnoUtilizzato' onClick={(e) => handleMenuOnClick(e)}>
+                  <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
+                </li>
+                <li className='app__flex p-text' key='lm-Contatti' onClick={(e) => handleMenuOnClick(e)}>
+                  <Link to='/contatti'>Contatti</Link>
+                </li>
+                <li className='app__flex p-text' key='lm-Preventivo' onClick={(e) => handleMenuOnClick(e)}>
+                  <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </div>
+      </nav>
+
+      <Popup trigger={popup['trigger']} title={popup['title']} description={popup['description']} onClick={closePopup} />
+    </>
   )
 }
 
