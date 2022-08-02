@@ -86,16 +86,16 @@ function Quote() {
       .then(function (response) {
           if (response.status === 200)
           {
-            setPopup({'trigger': true, 'title': 'Richiesta Inviata!', 'description': 'Riceverai una risposta entro 48 ore lavorative.'});
+            setPopup({'trigger': true, 'title': 'Richiesta Inviata!', 'description': response.data.message});
             setLoading(false);
           } else if (response.status === 500) {
-            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore interno al server. Contattaci telefonicamente per risolvere il problema.'});
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
             setLoading(false);
           } else if (response.status === 401) {
-            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Autenticazione non andata a buon fine. Se non sei un robot, ricarica la pagina e riprova.'});
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
             setLoading(false);
           } else {
-            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Contattaci telefonicamente per risolvere il problema.'});
+            setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
             setLoading(false);
           }
       })

@@ -15,19 +15,19 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {          
                 $data[] = $row; 
             };
-			$response['products'] =  $data;
+			    $response['products'] =  $data;
           } else {
             http_response_code(500);
             $response['message'] = 'Errore interno al server: impossibile recuperare la lista dei prodotti.';
-			break;
+			      break;
           }
-		  http_response_code(200);
+		      http_response_code(200);
           $response['message'] = 'OK';
           echo json_encode($response);
         } catch(PDOException $e) {
-			http_response_code(500);
-			$response['message'] = $e->getMessage();
-			echo json_encode($response);
+			    http_response_code(500);
+			    $response['message'] = $e->getMessage();
+			    echo json_encode($response);
         }
     }
 ?>
