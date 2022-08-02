@@ -14,6 +14,7 @@ function Navbar() {
   const [dropbarMenu, setDropbarMenu] = useState(false);
   const [products, setProducts] = useState([]);
   const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
+  const [activePage, setActivePage] = useState('');
 
   const handleMenuOnClick = (e) => {
     e.stopPropagation();
@@ -29,11 +30,12 @@ function Navbar() {
   }
 
   useEffect(() => {
+    updateActivePage();
     getProductsList();
   }, []);
 
   const getProductsList = () => {
-    axios.get('api/productCategory.php')
+    axios.get('http://localhost:80/api/productCategory.php')
     .then(function(response) {
       if (response.status === 200) {
         const allProductsList = response.data.products;
@@ -51,6 +53,11 @@ function Navbar() {
     setPopup({...popup, 'trigger': false});
   }
 
+  const updateActivePage = () => {
+    const currentPage = (window.location.href).substring((window.location.href).lastIndexOf('/') + 1);
+    setActivePage(currentPage);
+  }
+
   return (
     <>
       <nav className='app__navbar'>
@@ -58,19 +65,19 @@ function Navbar() {
           <Link to='/'><img src={images.logo} alt='logo'/></Link>
         </div>
         <ul className='app__navbar-links'>
-          <li className='app__flex p-text' key='l-Homepage'>
+          <li className={`app__flex p-text ${activePage === '' ? 'link-active' : ''}`} key='l-Homepage' onClick={() => updateActivePage()}>
             <Link to='/'>Homepage</Link>
           </li>
-          <li className={`app__flex p-text ${dropbarMenu ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
+          <li className={`app__flex p-text ${(activePage) === 'prodotti' ? 'link-active' : ''} ${(dropbarMenu && activePage !== 'prodotti') ? 'page-active' : ''}`} key='l-ElencoProdotti' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()} onClick={() => updateActivePage()}>
             <Link to='/prodotti'>Elenco Prodotti ▼</Link>
           </li>
-          <li className='app__flex p-text' key='l-LegnoUtilizzato'>
+          <li className={`app__flex p-text ${activePage === 'legnoutilizzato' ? 'link-active' : ''}`} key='l-LegnoUtilizzato' onClick={() => updateActivePage()}>
             <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
           </li>
-          <li className='app__flex p-text' key='l-Contatti'>
+          <li className={`app__flex p-text ${activePage === 'contatti' ? 'link-active' : ''}`} key='l-Contatti' onClick={() => updateActivePage()}>
             <Link to='/contatti'>Contatti</Link>
           </li>
-          <li className='app__flex p-text' key='l-Preventivo'>
+          <li className={`app__flex p-text ${activePage === 'preventivo' ? 'link-active' : ''}`} key='l-Preventivo' onClick={() => updateActivePage()}>
             <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
           </li>
         </ul>
@@ -97,19 +104,19 @@ function Navbar() {
               </motion.span>
 
               <ul className='app__navbar-links'>
-                <li className='app__flex p-text' key={'lm-Homepage'} onClick={(e) => handleMenuOnClick(e)}>
+                <li className={`app__flex p-text ${activePage === '' ? 'link-active' : ''}`} key='lm-Homepage' onClick={(e) => {handleMenuOnClick(e); updateActivePage()}}>
                   <Link to='/'>Homepage</Link>
                 </li>
-                <li className='app__flex p-text' key='lm-ElencoProdotti' onClick={(e) => handleMenuOnClick(e)}>
+                <li className={`app__flex p-text ${activePage === 'prodotti' ? 'link-active' : ''}`} key='lm-ElencoProdotti' onClick={(e) => {handleMenuOnClick(e); updateActivePage()}}>
                   <Link to='/prodotti'>Elenco Prodotti</Link>
                 </li>
-                <li className='app__flex p-text' key='lm-LegnoUtilizzato' onClick={(e) => handleMenuOnClick(e)}>
+                <li className={`app__flex p-text ${activePage === 'legnoutilizzato' ? 'link-active' : ''}`} key='lm-LegnoUtilizzato' onClick={(e) => {handleMenuOnClick(e); updateActivePage()}}>
                   <Link to='/legnoutilizzato'>Il Legno Utilizzato</Link>
                 </li>
-                <li className='app__flex p-text' key='lm-Contatti' onClick={(e) => handleMenuOnClick(e)}>
+                <li className={`app__flex p-text ${activePage === 'contatti' ? 'link-active' : ''}`} key='lm-Contatti' onClick={(e) => {handleMenuOnClick(e); updateActivePage()}}>
                   <Link to='/contatti'>Contatti</Link>
                 </li>
-                <li className='app__flex p-text' key='lm-Preventivo' onClick={(e) => handleMenuOnClick(e)}>
+                <li className={`app__flex p-text ${activePage === 'preventivo' ? 'link-active' : ''}`} key='lm-Preventivo' onClick={(e) => {handleMenuOnClick(e); updateActivePage()}}>
                   <button><Link to='/preventivo'>Richiedi un preventivo</Link></button>
                 </li>
               </ul>

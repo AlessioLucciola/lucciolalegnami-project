@@ -89,7 +89,7 @@
 
 .app__navbar-dropbar-menu {
     position: fixed;
-    right: 485px;
+    right: 430px;
     top: 62px;
     padding: 1rem 1rem;
     background-color: var(--white-color);
@@ -129,12 +129,30 @@
 }
 
 .page-active {
-    color: var(--secondary-color);
     border-bottom-style: solid;
     border-bottom-color: var(--secondary-color);
+
+    a {
+        color: var(--secondary-color);
+    }
     
     &:hover {    
         border: none;  
+    }
+}
+
+.link-active {
+    a {
+        color: var(--secondary-color);
+        border-bottom-style: solid;
+        border-bottom-color: var(--secondary-color);
+    }
+
+    button {
+        a {
+            color: var(--secondary-color);
+            border: none;
+        }
     }
 }
 

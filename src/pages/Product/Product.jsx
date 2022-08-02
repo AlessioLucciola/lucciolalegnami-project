@@ -10,16 +10,23 @@ import { ImageSlider, DividerLine, Popup, Lightbox, ButtonQuote } from '../../co
 import { images } from '../../constants';
 import './Product.scss';
 
-function Product(props) {
+function Product() {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState({name: '', description: ''});
   const [popup, setPopup] = useState({trigger: false, title: '', description: ''});
   const [lightbox, setLightbox] = useState({trigger: false, images: {}});
+
+  let currentPath = '';
   
   useEffect(() => {
-    const currentProduct = (window.location.href).substring((window.location.href).lastIndexOf('/') + 1);
-    getProductInfo(currentProduct);
-  }, []);
+    setInterval(() => {
+      const newPath = (window.location.href).substring((window.location.href).lastIndexOf('/') + 1);
+      if (currentPath !== newPath) {
+        currentPath = newPath;
+        getProductInfo(currentPath);
+      }
+    }, 1500)
+  }, [currentPath]);
 
   const getProductInfo = (product) => {
     let data = {
@@ -27,7 +34,7 @@ function Product(props) {
     }
     const params = new URLSearchParams(data);
 
-    axios.get('api/productList.php', { params })
+    axios.get('http://localhost:80/api/productList.php', { params })
     .then(function(response) {
       if (response.status === 200) {
         const allProductsInfo = response.data.products;
@@ -126,18 +133,31 @@ function Product(props) {
                             {item.tipologies}<br/>
                           </>
                         ) : '' }
-                        {item.uses !== '' ? (
-                          <>
-                            <strong>Possibili utilizzi:</strong><br/>
-                            {item.uses}<br/>
-                          </>
-                        ) : '' }
                         {item.woodtype !== '' ? (
                           <>
                             <strong>Legno utilizzato:</strong><br/>
                             {item.woodtype}<br/>
                           </>
                         ) : '' }
+                        {item.uses !== '' ? (
+                          <>
+                            <strong>Possibili utilizzi:</strong><br/>
+                            {item.uses}<br/>
+                          </>
+                        ) : '' }
+                        <strong>Disponibilità:</strong><br/>
+                        {item.availability === '0' ? (
+                          <>
+                            Attualmente non disponibili
+                          </>
+                        ) : ((item.availability === '1' ) ? (
+                          <>
+                            Attualmente disponibili
+                          </>
+                        ) : 
+                        <>
+                          Limitata
+                        </> )}
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer>
