@@ -28,6 +28,25 @@ function News() {
         });
     }
 
+    const closeNews = () => {
+        for (let i = 0; i < news.length; i++) {
+            let params = {
+                cookieName: 'news'+news[i].id,
+                cookieValue: '1',
+                cookieDuration: '86400'
+            }
+
+            axios.put('http://localhost:80/api/setCookie.php', params)
+            .then(function(response) {
+                console.log(response.status)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+        }
+        setActive(false);
+    }
+
     return (active) ? (
         <div className='app__news-shade'>
           <div className='app__news-inner'>
@@ -42,7 +61,7 @@ function News() {
                                 {item.text}
                             </div>
                             <div className='app__news-button'>
-                                <button type='button' className='p-text' onClick={() => setActive(false)}>Chiudi</button>
+                                <button type='button' className='p-text' onClick={() => closeNews()}>Chiudi</button>
                             </div>
                         </Carousel.Item>
                     ))}
@@ -56,7 +75,7 @@ function News() {
                         {news[0].text}
                     </div>
                     <div className='app__news-button singlenews'>
-                        <button type='button' className='p-text' onClick={() => setActive(false)}>Chiudi</button>
+                        <button type='button' className='p-text' onClick={() => closeNews()}>Chiudi</button>
                     </div>
                 </>
             )}
