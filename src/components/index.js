@@ -5,4 +5,5 @@ export { default as Popup } from './Popup/Popup';
 export { default as DividerLine } from './DividerLine/DividerLine';
 export { default as ButtonProducts } from './ButtonProducts/ButtonProducts';
 export { default as ButtonQuote } from './ButtonQuote/ButtonQuote';
+export { default as News } from './News/News';
 export { default as Lightbox } from './Lightbox/Lightbox';

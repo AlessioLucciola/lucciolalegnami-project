@@ -62,7 +62,7 @@ function Navbar() {
     <>
       <nav className='app__navbar'>
         <div className='app__navbar-logo'>
-          <Link to='/'><img src={images.logo} alt='logo'/></Link>
+          <Link to='/'><img src={images.logo} alt='logo' onClick={() => updateActivePage()} /></Link>
         </div>
         <ul className='app__navbar-links'>
           <li className={`app__flex p-text ${activePage === '' ? 'link-active' : ''}`} key='l-Homepage' onClick={() => updateActivePage()}>
