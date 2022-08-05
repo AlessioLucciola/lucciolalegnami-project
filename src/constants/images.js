@@ -112,16 +112,16 @@ const productImages = {
     'costruzione': [construzione1, construzione2, construzione3, construzione4],
     'travi': [travi1, travi2, travi3],
 
-    'staccionate-croce' : [staccionatacroce1, staccionatacroce2],
-    'staccionata-doppia' : [staccionatadoppia1],
-    'staccionata-altro': [staccionataaltro1],
+    'staccionatacroce' : [staccionatacroce1, staccionatacroce2],
+    'staccionatadoppia' : [staccionatadoppia1],
+    'staccionataaltro': [staccionataaltro1],
 
     'filagne': [filagne1, filagne2],
 
-    'cancello-tavole': [cancellotavole1],
-    'cancello-pali': [cancellopali1],
-    'cancello-maremmano': [cancellomaremmano1],
-    'cancello-basso': [cancellobasso1],
+    'cancellotavole': [cancellotavole1],
+    'cancellopali': [cancellopali1],
+    'cancellomaremmano': [cancellomaremmano1],
+    'cancellobasso': [cancellobasso1],
 
     'sostegnopiante' : [sostegnopiante2, sostegnopiante3, sostegnopiante4],
     'furcine': [furcine1, furcine2, furcine3, furcine4, furcine5],
@@ -130,8 +130,8 @@ const productImages = {
 
     'viminate': [viminatelogo],
 
-    'legna-stufa': [legnastufa1, legnastufa2, legnastufa3, legnastufa4, legnastufa5, legnastufa6],
-    'legna-camino': [legnacamino1, legnacamino2],
+    'legnastufa': [legnastufa1, legnastufa2, legnastufa3, legnastufa4, legnastufa5, legnastufa6],
+    'legnacamino': [legnacamino1, legnacamino2],
     'sacchette': [sacchette1, sacchette2, sacchette3, sacchette4],
     'accendifuoco': [accendifuoco1, accendifuoco2, accendifuoco3, accendifuoco4],
     'legnaforno': [legnaforno1],
