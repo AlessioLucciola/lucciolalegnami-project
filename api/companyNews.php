@@ -14,8 +14,11 @@
             if ($stmt->execute()) {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {          
                     if (!isset($_COOKIE['news'.$row['id']])) {
-                        $data[] = $row;
+                        $row['read'] = '0';
+                    } else {
+                        $row['read'] = '1';
                     }
+                    $data[] = $row;
                 };
                 $response['news'] = $data;
             } else {

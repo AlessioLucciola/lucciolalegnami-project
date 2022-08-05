@@ -3,21 +3,16 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 2;
+    z-index: 4;
 
     button {
         border: 3px;
         border-style: solid;
         border-color: var(--secondary-color);
-        border-radius: 600px;
+        border-radius: 300px;
         outline: none;
         background-color: var(--white-color);
         cursor: pointer;
         padding: 10px;
-
-        img {
-            width: 25px;
-            height: 22px;
-        }
     }
 }

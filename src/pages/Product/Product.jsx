@@ -34,7 +34,7 @@ function Product() {
     }
     const params = new URLSearchParams(data);
 
-    axios.get('http://localhost:80/api/productList.php', { params })
+    axios.get('api/productList.php', { params })
     .then(function(response) {
       if (response.status === 200) {
         const allProductsInfo = response.data.products;

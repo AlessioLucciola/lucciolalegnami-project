@@ -35,7 +35,7 @@ function Navbar() {
   }, []);
 
   const getProductsList = () => {
-    axios.get('http://localhost:80/api/productCategory.php')
+    axios.get('api/productCategory.php')
     .then(function(response) {
       if (response.status === 200) {
         const allProductsList = response.data.products;

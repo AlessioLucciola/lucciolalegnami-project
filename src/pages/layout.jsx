@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Navbar, TopButton} from '../components';
+import { Navbar, News, TopButton } from '../components';
 import { Footer } from '../containers';
 
 function layout() {
@@ -10,6 +10,7 @@ function layout() {
         <Navbar />
         <Outlet />
         <TopButton />
+        <News />
         <Footer />
     </>
   )

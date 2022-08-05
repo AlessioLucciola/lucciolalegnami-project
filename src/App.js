@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout';
 import { Homepage, Products, Product, Contacts, Quote, WoodDescription, NoPage } from './pages';
-import { News } from './components';
 
 import './dist/css/bootstrap.css';
 import './App.scss';
@@ -28,8 +27,6 @@ const App = () => {
                     </Routes>
                 </BrowserRouter>
             </div>
-
-            <News />
         </>
     )
 }

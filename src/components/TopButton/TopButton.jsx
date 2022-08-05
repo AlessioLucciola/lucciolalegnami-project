@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import { images } from '../../constants';
+import { IconContext } from 'react-icons';
+import { HiArrowUp } from 'react-icons/hi';
 import './TopButton.scss';
 
 function TopButton() {
@@ -25,11 +26,12 @@ function TopButton() {
     <> 
       <div className='app__topbutton'>
         { button && (<button onClick={buttonHandler}>
-          <img src={images.arrowup} alt='arrowup'></img>
+          <IconContext.Provider  value={{ size: '27px' }}>
+            <HiArrowUp />
+          </IconContext.Provider>
         </button>)}
       </div>
     </>
-
   )
 }
 

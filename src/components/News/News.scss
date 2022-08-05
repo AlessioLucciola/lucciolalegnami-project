@@ -1,11 +1,11 @@
 .app__news-shade {
     display: block;
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 10000px;
+    height: 10000px;
     top: 0%;
     background-color: rgba(0,0,0, 0.5);
-    z-index: 3;
+    z-index: 5;
 }
 
 .app__news-inner {
@@ -64,4 +64,23 @@
 
 .singlenews {
     margin-bottom: 0;
+}
+
+.app__news-openbutton {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 4;
+
+    button {
+        border: 3px;
+        border-style: solid;
+        border-color: var(--secondary-color);
+        border-radius: 600px;
+        outline: none;
+        background-color: var(--white-color);
+        cursor: pointer;
+        padding: 10px;
+    }
 }
