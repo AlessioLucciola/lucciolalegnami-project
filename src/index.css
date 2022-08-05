@@ -19,3 +19,23 @@
   margin: 0;
   scroll-behavior: smooth;
 }
+
+footer {
+  background-color: #1C2023;
+  text-align: center;
+}
+
+footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transform: all 0.1s ease-in-out;
+}
+
+footer a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+#preference-link {
+  display: none;
+}

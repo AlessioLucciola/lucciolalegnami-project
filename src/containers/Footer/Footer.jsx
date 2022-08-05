@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { BsFacebook, BsTwitter, BsGoogle, BsInstagram, BsYoutube, BsWhatsapp, BsTelephone, BsGithub, BsLockFill } from 'react-icons/bs';
 import { GoLocation } from 'react-icons/go';
+import { FaCookieBite } from 'react-icons/fa';
 import './Footer.scss';
 
 function Footer() {
+  useEffect(() => {
+    const script = document.createElement('script');
+  
+    script.src = "//cdn.iubenda.com/cs/iubenda_cs.js";
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
+
   return (
     <div className='app__footer'>
       <div className='app__footer-main'>
@@ -67,7 +81,10 @@ function Footer() {
           <BsGithub /> Sito web creato da <a href='https://github.com/AlessioLucciola' target="_blank" rel="noreferrer">Alessio Lucciola</a>
         </li>
         <li>
-          <BsLockFill />Cookie Policy
+          <BsLockFill /><a href="https://www.iubenda.com/privacy-policy/38376433"> Privacy Policy </a>
+        </li>
+        <li>
+          <FaCookieBite /><a href="https://www.iubenda.com/privacy-policy/38376433/cookie-policy" target="_blank" rel="noreferrer"> Cookie Policy </a>
         </li>
       </div>
     </div>

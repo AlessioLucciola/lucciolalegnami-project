@@ -39,9 +39,6 @@ function News() {
                                 }
                     
                                 axios.put('api/setCookie.php', params)
-                                .then(function(response) {
-                                    console.log(response.status)
-                                })
                                 .catch(function(error) {
                                     console.log(error)
                                 })
@@ -68,7 +65,6 @@ function News() {
     }
 
     const closeNews = () => {
-        console.log(allNews)
         setVisibleNews(allNews);
         setPopupActive(false);
     }
