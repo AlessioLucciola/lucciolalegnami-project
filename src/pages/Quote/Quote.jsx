@@ -88,6 +88,7 @@ function Quote() {
           {
             setPopup({'trigger': true, 'title': 'Richiesta Inviata!', 'description': response.data.message});
             setLoading(false);
+            //removeValueFromFields();
           } else if (response.status === 500) {
             setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
             setLoading(false);
@@ -123,6 +124,12 @@ function Quote() {
   const closePopup = () => {
     setPopup({...popup, 'trigger': false});
   }
+
+  /*const removeValueFromFields = () => {
+    setFormValues({'name': '', 'surname': '', 'email': '', 'phone': '', 'request': '', 'captcha': ''});
+    setFocused({'name': false, 'surname': false, 'email': false, 'phone': false, 'request': false, 'captcha': false});
+    recaptchaRef.current.reset();
+  }*/
 
   return (
     <div>

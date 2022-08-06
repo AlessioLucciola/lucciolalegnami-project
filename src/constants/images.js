@@ -7,7 +7,7 @@ import slide3 from '../assets/slide3.jpg';
 import mail from '../assets/mail.png';
 import phone from '../assets/phone.png';
 import wa from '../assets/wa.png';
-import buttonproducts from '../assets/buttonproducts.png';
+import buttonproducts from '../assets/buttonproducts.jpg';
 import buttonquote from '../assets/buttonquote.jpg';
 import hmp1 from '../assets/hmp1.jpg';
 import hmp2 from '../assets/hmp2.jpg';
@@ -18,6 +18,10 @@ import wood3 from '../assets/wood3.jpg';
 //Product logos
 import furcinelogo from '../assets/furcine/furcine-logo.jpg';
 import cancellilogo from '../assets/cancelli/cancelli-logo.jpg';
+import cancellopalilogo from '../assets/cancelli/cancellopali-logo.jpg';
+import cancellotavolelogo from '../assets/cancelli/cancellotavole-logo.jpg';
+import cancellomaremmanologo from '../assets/cancelli/cancellomaremmano-logo.jpg';
+import cancellobassologo from '../assets/cancelli/cancellobasso-logo.jpg';
 import filagnelogo from '../assets/filagne/filagne-logo.jpg';
 import testarinilogo from '../assets/furcine/testarini-logo.jpg';
 import velletranilogo from '../assets/furcine/velletrani-logo.jpg';
@@ -157,6 +161,10 @@ export default {
     wood3,
     furcinelogo,
     cancellilogo,
+    cancellomaremmanologo,
+    cancellopalilogo,
+    cancellotavolelogo,
+    cancellobassologo,
     filagnelogo,
     legnadaarderelogo,
     recinzionilogo,

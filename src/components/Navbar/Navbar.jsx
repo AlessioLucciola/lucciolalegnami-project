@@ -40,12 +40,7 @@ function Navbar() {
       if (response.status === 200) {
         const allProductsList = response.data.products;
         setProducts(allProductsList);
-      } else {
-        setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': response.data.message});
       }
-    })
-    .catch(function(error) {
-      setPopup({'trigger': true, 'title': 'Si è verificato un errore!', 'description': 'Si è verificato un errore con il server. Ti preghiamo di riprovare più tardi.'});
     })
   }
 
@@ -82,7 +77,7 @@ function Navbar() {
           </li>
         </ul>
 
-        {dropbarMenu && (
+        {(dropbarMenu && products.length > 0) && (
           <div className='app__navbar-dropbar-menu' onMouseEnter={() => openDropbarMenu()} onMouseLeave={() => closeDropbarMenu()}>
             <ul className='app__navbar-dropbar-links'>
               {products ? (products.map((item, index) => (
