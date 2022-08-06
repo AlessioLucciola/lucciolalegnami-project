@@ -1,6 +1,9 @@
 <?php 
 	require('sendgrid-php/sendgrid-php.php');
 	include('config.php');
+	include 'dbConnect.php';
+    $objDb = new DbConnect;
+    $conn = $objDb->connect();
 
 	function curlRequest($url)
 	{
@@ -52,6 +55,19 @@
 				try {
 					$SGresponse = $sendgrid->send($newEmail);
 					if($SGresponse->statusCode() == 200 || $SGresponse->statusCode() == 202) {
+						try {
+							$sql = "INSERT INTO emails (name, surname, email, phone, request) VALUES (:name,:surname,:email,:phone,:request)";
+							$conn->beginTransaction();
+							$stmt = $conn->prepare($sql);
+							$stmt->bindParam(":name", $name, PDO::PARAM_STR);
+							$stmt->bindParam(":surname", $surname, PDO::PARAM_STR);
+							$stmt->bindParam(":email", $email, PDO::PARAM_STR);
+							$stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
+							$stmt->bindParam(":request", $request, PDO::PARAM_STR);
+							$stmt->execute();
+						} catch(PDOException $e) {
+							$conn->rollback();
+						}
 						http_response_code(200);
 						$response['message'] = 'Riceverai una email entro 48 ore lavorative.';
 						echo json_encode($response);
