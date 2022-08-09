@@ -1,5 +1,6 @@
 <?php 
 	require('sendgrid-php/sendgrid-php.php');
+    $template = file_get_contents("media/emailtemplate.html");
 	include('config.php');
 	include 'dbConnect.php';
     $objDb = new DbConnect;
@@ -49,7 +50,20 @@
 				$newEmail->setSubject("Richiesta Preventivo - " . $name . " " . $surname);
 				$newEmail->addTo($sentToEmail, "LucciolaLegnami");
 				$newEmail->setReplyTo($email);
-				$newEmail->addContent("text/html", "<h3><strong>Hai ricevuto una richiesta di preventivo:</strong></h3><br>Nome: " . $name . "<br>Cognome: " . $surname . "<br>Email: " . $email . "<br>Telefono: " . $phone . "<br>Richiesta: " . $request . "<br><hr>Per rispondere a questa email, clicca su rispondi.");
+                
+                $variables = array();
+                $variables['name'] = $name;
+                $variables['surname'] = $surname;
+                $variables['phone'] = $phone;
+                $variables['email'] = $email;
+                $variables['request'] = $request;
+                
+                foreach($variables as $key => $value)
+                {
+                    $template = str_replace('{{ '.$key.' }}', $value, $template);
+                }
+                
+				$newEmail->addContent("text/html", $template);
 
 				$sendgrid = new \SendGrid($sendgridApiKey);
 				try {
