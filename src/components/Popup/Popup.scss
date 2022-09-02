@@ -9,15 +9,16 @@
 }
 
 .app__popup-inner {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: fixed;
     width: 80%;
-    top: 45%;
-    margin-left: 10%;
-    margin-right: 10%;
+    overflow: auto;
+    overflow-wrap: anywhere;
+    max-height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 1rem;
     border-radius: 20px;
     background-color: var(--white-color);
@@ -27,6 +28,10 @@
     border-color: var(--secondary-color);
     text-align: center;
     z-index: 4;
+
+    p {
+        margin: 0;
+    }
 }
 
 .app__popup-title {
@@ -40,27 +45,32 @@
 }
 
 .app__popup-button {
-    margin: 1rem;
-
     button {
-        padding: 0.5rem 0.7rem;
-        border-radius: 20px;
+        margin: 1rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
         border-color: var(--secondary-color);
         border-style: solid;
-        background-color: var(--white-color);
-
-        &:hover {
-            color: var(--secondary-color);
-        }
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
 
         a {
-            color: var(--black-color);
             text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 500;
+            color: var(--white-color);
             transition: all 0.1s ease-in-out;
+        }
 
-            
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+
+            a {
+                color: var(--secondary-color);
+            }
         }
     }
 }

@@ -1,0 +1,755 @@
+.app__administration-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.app__administration-layout-content {
+    width: 80%;
+    background-color: var(--white-color);
+    padding: 1rem 1rem;
+
+    @media screen and (max-width: 799px) {
+        width: 90%;
+    }
+}
+
+.app__administration-layout-body {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.app__administration-layout-navbar {
+    width: 20%;
+
+    @media screen and (max-width: 799px) {
+        width: 10%;
+    }
+}
+
+.app__administration-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem;
+    background: fixed;
+    position: relative;
+    font-family: var(--font-base);
+}
+
+.app__administration-header-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        width: 150px;
+        height: 50px;
+    }
+}
+
+.app__administration-header-profile {
+    svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.app__administration-navbar {
+    text-align: left;
+    width: 100%;
+}
+
+.app__administration-navbar-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+    padding: 0.2rem 0;
+    list-style: none;
+    font-family: var(--font-base);
+    background-color: var(--white-color);
+
+    li {
+        margin: 0.5rem;
+        cursor: pointer;
+        color: var(--black-color);
+        font-size: 15px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+
+    svg {
+        width: 35px;
+        height: 35px;
+        margin: 0.5rem 1rem;
+        color: var(--secondary-color);
+    }
+
+    .link-active {
+        color: var(--secondary-color);
+    }
+
+    @media screen and (max-width: 950px) {
+        display: none;
+    }
+}
+
+.app__administration-navbar-menu {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary-color);
+
+    svg {
+        width: 70%;
+        height: 70%;
+        color: var(--white-color);
+    }
+
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        padding: 1rem;
+        margin-left: -40%;
+        width: 40%;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-direction: column;
+        background-color: var(--white-color);
+        box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
+
+        svg {
+            width: 35px;
+            height: 35px;
+            margin: 0.5rem 1rem;
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1rem;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            align-items: left;
+            flex-direction: column;
+    
+            li {
+                margin: 1rem 0;
+                height: 1rem;
+                column-gap: 1rem;
+            }
+        }
+
+        @media screen and (min-width: 950px) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 950px) {
+        display: none;
+    }
+}
+
+.app__administration-payment-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 3px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-radius: 20px;
+
+    button {
+        position: relative;
+        margin: 1rem;
+        padding: 0.3rem 0.3rem;
+        border-radius: 20px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--primary-color);
+        color: var(--black-color);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+            color: var(--secondary-color);
+            
+            a {
+                border-style: none;
+            }
+        }
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.app__administration-news {
+    position: relative;
+
+    button {
+        margin: 1rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
+        
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+}
+
+.app__administration-news-addbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.app__administration-news-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 3px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-radius: 20px;
+}
+
+.app__administration-news-update-shade {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 5;
+}
+
+.app__administration-news-update-inner {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 80%;
+    overflow: scroll;
+    max-height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    text-align: center;
+    z-index: 4;
+
+    button {
+        margin: 1rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
+        
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    select, input, textarea {
+        width: 100%;
+        padding: 0.70rem;
+        border-radius: 20px;
+        border: 3px;
+        border-style: solid;
+        border-color: var(--secondary-color);
+        background-color: var(--white-color);
+        color: var(--secondary-color);
+        font-family: var(--font-base);
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.05s ease-in-out;
+    }
+
+    textarea {
+        height: 170px;
+    }
+}
+
+.app__administration-quotes {
+    button {
+        margin: 1rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--white-color);
+            transition: all 0.1s ease-in-out;
+        }
+
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+
+            a {
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+.app__administration-quotes-viewmore {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__administration-quotes-item {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 3px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-radius: 20px;
+
+    @media screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.app__administration-quotes-item-content {
+    position: relative;
+    width: 100%;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media screen and (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 600px) {
+            margin-bottom: 0.3rem;
+        }
+    }
+}
+
+.app__administration-quotes-item-buttons {
+    position: relative;
+    width: 100%;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+        }
+    }
+}
+
+.app__administration-quotes-item-buttons-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    box-shadow: 8px 8px 8px 5px #888888;
+    text-align: center;
+
+    @media screen and (max-width: 600px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        padding: rgba(0, 0, 0, 1);
+        background-color: var(--white-color);
+        color: var(--secondary-color);
+        padding: 0.5rem 1rem;
+        margin: 0.5rem 0;
+        text-align: center;
+        transition: all 0.1s ease-in-out;
+
+        a {
+            color: var(--secondary-color);
+            transition: all 0.1s ease-in-out;
+        }
+
+        svg {
+            margin: 0rem 0.3rem;
+        }
+
+        &:hover {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+
+            a {
+                color: var(--white-color);
+                border-style: none;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.app__administration-quotes-filter-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__administration-quotes-filter-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    border-color: var(--secondary-color);
+    border-style: solid;
+
+    input {
+        width: 80%;
+        padding: 0.5rem 0.5rem;
+        border: none !important;
+        background-color: var(--white-color);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--secondary-color);
+        transition: all 0.1s ease-in-out;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.app__administration-quotes-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: (--white-color);
+}
+
+.app__administration-quotes-filter-menu {
+    position: absolute;
+    top: 250px;
+    padding: 0.5rem;
+    background-color: var(--white-color);
+    box-shadow: 8px 8px 8px 5px #888888;
+    z-index: 3;
+
+    @media screen and (max-width: 600px) {
+        position: relative;
+        top: 0;
+    }
+}
+
+.app__administration-quotes-filter-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    div {
+        padding: 0;
+        margin: 0;
+    }
+
+    &:hover {
+        background-color: var(--secondary-color);
+        color:rgba(255, 255, 255, 1);
+    }
+}
+
+.item-active {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    
+}
+
+.app__administration-quotes-creation-shade {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 5;
+}
+
+.app__administration-quotes-creation-inner {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 80%;
+    overflow: scroll;
+    max-height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    border: 1px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    text-align: center;
+    z-index: 4;
+
+    button {
+        margin: 1rem;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
+        border-color: var(--secondary-color);
+        border-style: solid;
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+        }
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    select, input, textarea {
+        width: 100%;
+        padding: 0.70rem;
+        border-radius: 20px;
+        border: 3px;
+        border-style: solid;
+        border-color: var(--secondary-color);
+        background-color: var(--white-color);
+        color: var(--secondary-color);
+        font-family: var(--font-base);
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.05s ease-in-out;
+    }
+
+    textarea {
+        height: 170px;
+    }
+}
+
+.app__administration-quotes-creation-inner-structure-product-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    #productname {
+        width: 100%;
+    }
+
+    #productprice {
+        width: 50%;
+    }
+
+    #productquantity {
+        width: 50%;
+    }
+
+    input {
+        height: 52px;
+    }
+
+    @media screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            margin: 0.2rem 0;
+        }
+
+        #productname {
+            width: 100%;
+        }
+    
+        #productprice {
+            width: 60%;
+        }
+
+        #productquantity {
+            width: 40%;
+        }
+    }
+}
+
+.app__administration-quotes-creation-inner-structure-product-item-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        width: 280px;
+    }
+
+    @media screen and (max-width: 600px) {
+        button {
+            width: 100%;
+            margin: 1rem 0;
+        }
+    }
+}

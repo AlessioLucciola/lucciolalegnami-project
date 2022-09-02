@@ -1,0 +1,80 @@
+.app__adminlogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.app__adminlogin-description {
+    padding: 1rem;
+}
+
+.app__adminlogin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: var(--primary-color);
+    border: 3px;
+    border-style: solid;
+    border-color: var(--secondary-color);
+    border-radius: 20px;
+    padding-top: 20px;
+    padding-bottom: 1.5rem;
+
+    div {
+        width: 80%;
+        margin: 0.5rem 0;
+        border-radius: 10px;
+        padding: 0.5rem 0;
+
+        input {
+            width: 100%;
+            padding: 0.70rem;
+            border-radius: 20px;
+            border: none;
+            border-color: var(--secondary-color);
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+            font-family: var(--font-base);
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.05s ease-in-out;
+
+            &:hover {
+                outline: 2px solid;
+            }
+
+            &:active {
+                outline: 2px solid;
+            }
+        }
+    }
+
+    button {
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--secondary-color);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        font-family: var(--font-base);
+        cursor: pointer;
+    }
+
+    span {
+        display: none;
+        color: red;
+    }
+
+    input:invalid[focused="true"] ~ span {
+        display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 80%;
+    }
+}

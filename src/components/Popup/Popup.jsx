@@ -10,7 +10,7 @@ const Popup = (props) => {
             {props.title}
         </div>
         <div className='app__popup-description'>
-          {props.description}
+          {props.description.split('<br/>').map((str, index) => <p key={index}>{str}</p>)}
         </div>
         {props.children}
         <div className='app__popup-button'>

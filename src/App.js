@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/layout';
-import { Homepage, Products, Product, Contacts, Quote, WoodDescription, NoPage } from './pages';
+import { Homepage, Products, Product, Contacts, Quote, WoodDescription, NoPage, Administration, AdministrationLogin } from './pages';
 
 import './dist/css/bootstrap.css';
 import './App.scss';
@@ -23,7 +23,9 @@ const App = () => {
                             <Route path='contatti' element={<Contacts />} />
                             <Route path='preventivo' element={<Quote />} />
                             <Route path='*' element={<NoPage />} />
+                            <Route path='admin/login' element={<AdministrationLogin />} />
                         </Route>
+                        <Route path='admin' element={<Administration />} />
                     </Routes>
                 </BrowserRouter>
             </div>

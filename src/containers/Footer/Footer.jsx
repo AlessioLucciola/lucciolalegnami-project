@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { BsFacebook, BsTwitter, BsGoogle, BsInstagram, BsYoutube, BsWhatsapp, BsTelephone, BsGithub, BsLockFill } from 'react-icons/bs';
+import { RiAdminLine } from 'react-icons/ri';
 import { GoLocation } from 'react-icons/go';
 import { FaCookieBite } from 'react-icons/fa';
 import './Footer.scss';
@@ -79,6 +80,9 @@ function Footer() {
         </li>
         <li>
           <BsGithub /> Sito web creato da <a href='https://github.com/AlessioLucciola' target="_blank" rel="noreferrer">Alessio Lucciola</a>
+        </li>
+        <li>
+          <RiAdminLine /><Link to='/admin'> Pannello Amministrazione</Link>
         </li>
         <li>
           <BsLockFill /><a href="https://www.iubenda.com/privacy-policy/38376433"> Privacy Policy </a>

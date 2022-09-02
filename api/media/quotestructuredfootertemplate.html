@@ -92,12 +92,6 @@
       color: #0000ee;
       text-decoration: underline;
     }
-    
-    @media (max-width: 480px) {
-      #u_content_heading_1 .v-text-align {
-        text-align: center !important;
-      }
-    }
   </style>
 
 
@@ -135,30 +129,10 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
 
-                              <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                <tr>
-                                  <td class="v-text-align" style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                    <img align="center" border="0" src="https://www.lucciolalegnami.it/static/media/logo.0687be86f1bd7b82551c.png" alt="logo" title="logo" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 53%;max-width: 254.4px;"
-                                      width="254.4" />
-
-                                  </td>
-                                </tr>
-                              </table>
-
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <table id="u_content_heading_1" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                        <tbody>
-                          <tr>
-                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
-
-                              <h1 class="v-text-align" style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Montserrat',sans-serif; font-size: 24px;">
-                                Hai ricevuto una richiesta di preventivo
-                              </h1>
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Cordiali saluti,</span></p>
+                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Lucciola Legnami</strong>.</span></p>
+                              </div>
 
                             </td>
                           </tr>
@@ -170,12 +144,28 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
 
-                              <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Nome:</strong> {{ name }}</span></p>
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Cognome:</strong> {{ surname }}</span></p>
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Telefono: </strong>{{ phone }}</span></p>
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Email: </strong>{{ email }}</span></p>
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;"><strong>Richiesta:</strong></span></p>
+                              <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #BBBBBB;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                <tbody>
+                                  <tr style="vertical-align: top">
+                                    <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                                      <span>&#160;</span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">La sua richiesta:</span></p>
                                 <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">{{ request }}</span></p>
                               </div>
 
@@ -214,8 +204,8 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
 
-                              <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Per rispondere, clicca sul rispettivo bottone oppure utilizza il <a rel="noopener" href="https://www.lucciolalegnami.it/admin" target="_blank">pannello amministratore</a>.</span></p>
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Per ulteriori informazioni, contattare il numero <a rel="noopener" href="tel:3487941382" target="_blank">3487941382</a> oppure rispondere a questa email. Riceverà una risposta entro breve.</span></p>
                               </div>
 
                             </td>
@@ -228,10 +218,10 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
 
-                              <div class="v-text-align" align="center">
-                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="tel:" style="height:37px; v-text-anchor:middle; width:196px;" arcsize="11%" stroke="f" fillcolor="#d3580c"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
-                                <a href="tel:{{ phone }}" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #d3580c; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
-                                  <span style="display:block;padding:10px 20px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px; font-family: Montserrat, sans-serif;">Contatta il richiedente</span></span>
+                              <div align="center">
+                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="tel:3487941382" style="height:37px; v-text-anchor:middle; width:234px;" arcsize="11%" stroke="f" fillcolor="#d3580c"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
+                                <a href="tel:3487941382" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #d3580c; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                  <span style="display:block;padding:10px 20px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px; font-family: Montserrat, sans-serif;">Contattaci Telefonicamente</span></span>
                                 </a>
                                 <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
                               </div>
@@ -356,7 +346,11 @@
                           <tr>
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:arial,helvetica,sans-serif;" align="left">
 
-                              <div class="v-text-align" style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Ha ricevuto questa email in seguito ad una richiesta di preventivo.</span></p>
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"> </p>
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Si avvisa che il preventivo è solo informativo e non implica la prenotazione del materiale che deve essere concordata telefonicamente. Il contenuto del preventivo può essere variabile in base alla disponibilità del materiale.</span></p>
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"> </p>
                                 <p style="font-size: 14px; line-height: 140%; text-align: center;"><strong><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Lucciola Legnami</span></strong></p>
                                 <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">Via Cassia Km.53.200 01012 Capranica (VT)</span></p>
                                 <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: Montserrat, sans-serif; font-size: 14px; line-height: 19.6px;">P.I. 00788050565</span></p>

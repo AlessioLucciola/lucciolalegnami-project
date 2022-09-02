@@ -70,7 +70,7 @@
 					$SGresponse = $sendgrid->send($newEmail);
 					if($SGresponse->statusCode() == 200 || $SGresponse->statusCode() == 202) {
 						try {
-							$sql = "INSERT INTO emails (name, surname, email, phone, request) VALUES (:name,:surname,:email,:phone,:request)";
+							$sql = "INSERT INTO emails (name, surname, email, phone, request, id, timestamp, response, state) VALUES (:name,:surname,:email,:phone,:request,DEFAULT,DEFAULT,'',DEFAULT)";
 							$conn->beginTransaction();
 							$stmt = $conn->prepare($sql);
 							$stmt->bindParam(":name", $name, PDO::PARAM_STR);

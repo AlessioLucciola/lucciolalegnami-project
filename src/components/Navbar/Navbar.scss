@@ -28,7 +28,7 @@
     list-style: none;
 
     li {
-        margin: 1rem;
+        margin: 0 0.8rem;
         cursor: pointer;
         flex-direction: column;
     }
@@ -43,9 +43,8 @@
         color: var(--black-color);
         text-decoration: none;
         flex-direction: column;
-        text-transform: uppercase;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 15px;
         transition: all 0.1s ease-in-out;
 
         &:hover {
@@ -56,22 +55,30 @@
     }
 
     button {
-        padding: 0.3rem 0.3rem;
-        border-radius: 20px;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
         border-color: var(--secondary-color);
         border-style: solid;
-        background-color: var(--primary-color);
-        color: var(--black-color);
-        text-decoration: none;
+        background-color: var(--secondary-color);
         text-transform: uppercase;
+        text-decoration: none;
         font-weight: 500;
+        color: var(--white-color);
         transition: all 0.1s ease-in-out;
 
+        a {
+            text-decoration: none;
+            color: var(--white-color);
+            transition: all 0.1s ease-in-out;
+        }
+
         &:hover {
+            background-color: var(--white-color);
             color: var(--secondary-color);
-            
+
             a {
-                border-style: none;
+                color: var(--secondary-color);
+                border-bottom-style: none
             }
         }
     }
