@@ -10,21 +10,30 @@
     }
 
     button {
-        padding: 0.3rem 0.3rem;
-        border-radius: 20px;
+        padding: 0.5rem 0.5rem;
+        border-radius: 6px;
         border-color: var(--secondary-color);
         border-style: solid;
-        background-color: var(--white-color);
+        background-color: var(--secondary-color);
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--white-color);
+        transition: all 0.1s ease-in-out;
 
         a {
-            color: var(--black-color);
             text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 500;
+            color: var(--white-color);
             transition: all 0.1s ease-in-out;
+        }
 
-            &:hover {
+        &:hover {
+            background-color: var(--white-color);
+            color: var(--secondary-color);
+
+            a {
                 color: var(--secondary-color);
+                border-bottom-style: none
             }
         }
     }

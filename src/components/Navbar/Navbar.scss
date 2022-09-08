@@ -5,6 +5,7 @@
     align-items: center;
     padding: 1rem 1rem;
     background: fixed;
+    background-color: var(--white-color);;
     position: relative;
     font-family: var(--font-base);
 }
@@ -17,6 +18,11 @@
     img {
         width: 200px;
         height: 65.5px;
+
+        @media screen and (max-width: 1050px) {
+            width: 150px;
+            height: 50px;
+        }
     }
 }
 
@@ -30,7 +36,7 @@
     li {
         margin: 0 0.8rem;
         cursor: pointer;
-        flex-direction: column;
+        flex-direction: row;
     }
 
     div {
@@ -44,14 +50,33 @@
         text-decoration: none;
         flex-direction: column;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 16px;
         transition: all 0.1s ease-in-out;
 
         &:hover {
             color: var(--secondary-color);
+        }
+    }
+
+    .link-active {
+        position: relative;
+        
+        a {
+            color: var(--secondary-color);
+            border-bottom: 3px;
             border-bottom-style: solid;
             border-bottom-color: var(--secondary-color);
         }
+
+        #quotelink, #arrow {
+            border-bottom: none;
+        }
+    }
+
+    #arrow {
+        font-size: 12px;
+        margin: 0 0 0 0.5rem;
+        color: var(--black-color);
     }
 
     button {
@@ -94,17 +119,26 @@
     }
 }
 
-.app__navbar-dropbar-menu {
-    position: fixed;
+.app__navbar-dropbar-menu-margin {
+    position: absolute;
     right: 430px;
     top: 62px;
+    margin: -1rem 0;
+    z-index: 2;
+}
+
+.app__navbar-dropbar-menu {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 0;
     padding: 1rem 1rem;
+    margin: 1rem 0;
     background-color: var(--white-color);
     border-style: solid;
     border-width: 2px;
     border-color: var(--secondary-color);
     border-radius: 10px;
-    z-index: 2;
 }
 
 .app__navbar-dropbar-links {
@@ -124,9 +158,10 @@
         color: var(--black-color);
         text-decoration: none;
         flex-direction: column;
-        text-transform: uppercase;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 16px;
+        font-family: var(--font-base);
+        text-align: center;
         transition: all 0.1s ease-in-out;
 
         &:hover {
@@ -136,30 +171,8 @@
 }
 
 .page-active {
-    border-bottom-style: solid;
-    border-bottom-color: var(--secondary-color);
-
     a {
         color: var(--secondary-color);
-    }
-    
-    &:hover {    
-        border: none;  
-    }
-}
-
-.link-active {
-    a {
-        color: var(--secondary-color);
-        border-bottom-style: solid;
-        border-bottom-color: var(--secondary-color);
-    }
-
-    button {
-        a {
-            color: var(--secondary-color);
-            border: none;
-        }
     }
 }
 
@@ -185,7 +198,7 @@
         bottom: 0;
         right: 0;
         z-index: 5;
-        padding: 1rem;
+        padding: 1rem 0;
         width: 40%;
         height: 100vh;
         display: flex;
@@ -223,6 +236,10 @@
 
         @media screen and (min-width: 1050px) {
             display: none;
+        }
+
+        .link-active {
+            border: none;
         }
     }
 

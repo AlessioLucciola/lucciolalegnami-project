@@ -1,5 +1,6 @@
 .app__footer {
     background-color: var(--bg-dark);
+    font-family: var(--font-base);
 }
 
 .app__footer-main {
@@ -28,7 +29,7 @@
         border: 1px;
         border-color: var(--white-color);
         border-style: solid;
-        border-radius: 6px;
+        border-radius: 30px;
         transition: all 0.1s ease-in-out;
 
         &:hover {
