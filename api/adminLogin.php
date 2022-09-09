@@ -17,16 +17,7 @@
 				echo json_encode($response);
                 exit();
 			} else {
-                try {
-                    /*$sql = "INSERT INTO users VALUES (0, :username, :password, :role)";
-                    $password_hash = password_hash($password, PASSWORD_BCRYPT);
-                    $role = "admin";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-                    $stmt->bindParam(':password', $password_hash, PDO::PARAM_STR);
-                    $stmt->bindParam(':role', $role, PDO::PARAM_STR);
-                    $stmt->execute();*/
-                    
+                try { 
                     $sql = "SELECT uuid, username, password, role FROM users WHERE username = :username";
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(":username", $username, PDO::PARAM_STR);
