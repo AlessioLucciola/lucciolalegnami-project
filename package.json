@@ -13,7 +13,7 @@
     "framer-motion": "^6.5.1",
     "mdb-react-ui-kit": "^4.1.0",
     "react": "^18.2.0",
-    "react-admin": "^4.2.6",
+    "react-admin": "^4.7.6",
     "react-awesome-lightbox": "^1.8.1",
     "react-bootstrap": "^2.4.0",
     "react-document-meta": "^3.0.0-beta.2",
