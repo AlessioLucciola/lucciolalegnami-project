@@ -8,6 +8,10 @@ import { FaCookieBite } from 'react-icons/fa';
 import './Footer.scss';
 
 function Footer() {
+  const getCurrentYear = () => {
+    return new Date().getFullYear()
+  }
+
   useEffect(() => {
     const script = document.createElement('script');
   
@@ -76,7 +80,7 @@ function Footer() {
 
       <div className='app__footer-end'>
         <li>
-          © 2022 Copyright Lucciola Legnami
+          © {getCurrentYear()} Copyright Lucciola Legnami
         </li>
         <li>
           <BsGithub /> Sito web creato da <a href='https://github.com/AlessioLucciola' target="_blank" rel="noreferrer">Alessio Lucciola</a>
