@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { BsFacebook, BsTwitter, BsGoogle, BsInstagram, BsYoutube, BsWhatsapp, BsTelephone, BsGithub, BsLockFill } from 'react-icons/bs';
-import { RiAdminLine } from 'react-icons/ri';
+import { BsFacebook, BsGoogle, BsInstagram, BsYoutube, BsWhatsapp, BsTelephone, BsGithub, BsLockFill } from 'react-icons/bs';
+import { RiAdminLine, RiTwitterXLine } from 'react-icons/ri';
 import { GoLocation } from 'react-icons/go';
 import { FaCookieBite } from 'react-icons/fa';
 import './Footer.scss';
@@ -33,7 +33,7 @@ function Footer() {
         <div className='app__footer-social'>
             <a href='https://www.facebook.com/pages/Lucciola-Legnami-Azienda-Boschiva/130220746994961' target="_blank" rel="noreferrer"><BsFacebook /></a>
             <a href='https://www.instagram.com/lucciolalegnami' target="_blank" rel="noreferrer"><BsInstagram /></a>
-            <a href='https://twitter.com/LucciolaLegnami' target="_blank" rel="noreferrer"><BsTwitter /></a>
+            <a href='https://twitter.com/LucciolaLegnami' target="_blank" rel="noreferrer"><RiTwitterXLine /></a>
             <a href='https://www.youtube.com/channel/UCSRzPZcaeu24uDJJbG1XTAg' target="_blank" rel="noreferrer"><BsYoutube /></a>
             <a href='https://g.page/LucciolaLegnami' target="_blank" rel="noreferrer"><BsGoogle /></a>
         </div>
