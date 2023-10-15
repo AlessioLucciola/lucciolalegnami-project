@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { MDBTypography } from 'mdb-react-ui-kit';
 
@@ -7,6 +7,11 @@ import { images } from '../../constants';
 import './Homepage.scss';
 
 function Homepage() {
+  const targetDivRef = useRef()
+  const scrollToDiv = () => {
+      targetDivRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div>
       <ImageSlider />
@@ -20,7 +25,7 @@ function Homepage() {
           </MDBTypography>
         </span>
 
-        <ButtonProducts />
+        <ButtonProducts/>
         
         <div className='app__homepage-sections'>
           <h4>Chi siamo</h4>
@@ -45,11 +50,11 @@ function Homepage() {
                 La paleria è il principale lavorato ed è proprio con i pali che vengono costruiti i cancelli rustici montati e scortecciati a mano con misure scelte dal cliente.
                 Siamo a completa disposizione per informazioni e consigli su come utilizzare al meglio il nostro legname.
               </MDBTypography>
-              <button><Link to='/legnoutilizzato'>Scopri di più sul legno utilizzato</Link></button>
+              <button><Link onClick={scrollToDiv} to='/legnoutilizzato'>Scopri di più sul legno utilizzato</Link></button>
             </div>
           </div>
 
-          <ButtonQuote />
+          <ButtonQuote/>
         </div>
       </div>
     </div>
