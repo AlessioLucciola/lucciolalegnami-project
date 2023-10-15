@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MDBTypography } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -17,6 +17,11 @@ function Products() {
   useEffect(() => {
     getProductsList();
   }, []);
+
+  const targetDivRef = useRef()
+  const scrollToDiv = () => {
+      targetDivRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const getProductsList = () => {
     axios.get('api/productCategory.php')
@@ -44,7 +49,7 @@ function Products() {
   return (
     <div>
       <ImageSlider />
-      <div className='app__products app__container'>
+      <div ref={targetDivRef} className='app__products app__container'>
         <h1>Elenco Prodotti</h1>
         <DividerLine />
         <div className='app__products-description'>
@@ -62,7 +67,7 @@ function Products() {
                   <Card.Text>{item.shortdescription}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <button><Link to={item.shortname}>Visualizza Scheda Prodotti</Link></button>
+                  <button onClick={scrollToDiv}><Link to={item.shortname}>Visualizza Scheda Prodotti</Link></button>
                 </Card.Footer>
               </Card>
             </div>
